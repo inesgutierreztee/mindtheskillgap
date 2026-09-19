@@ -9,3 +9,4 @@ coverage/
 .vite/
 .claude/
 .impeccable/
+.git-commit-msg.txt
