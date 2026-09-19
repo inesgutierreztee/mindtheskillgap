@@ -1,0 +1,4047 @@
+{
+  "generatedAt": "2026-09-19T00:13:40.427Z",
+  "mode": "LIVE_SHADOW_TEST",
+  "note": "Normalized demand/capacity values are proxies, not actual passenger counts or official LTA capacities.",
+  "server": "http://127.0.0.1:3000",
+  "lta": {
+    "liveMode": true,
+    "provider": "LTA DataMall v3 Live API",
+    "accountKeyConfigured": true
+  },
+  "journeysAttempted": 12,
+  "journeyResults": [
+    {
+      "origin": "Punggol",
+      "destination": "one-north",
+      "mode": "transit",
+      "testTimestamp": "2026-09-19T00:13:45.555Z",
+      "departureTime": "2026-09-19T00:13:40.456Z",
+      "routeCount": 1,
+      "shadowCandidateCount": 5,
+      "shadowCandidates": [
+        {
+          "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+          "baseRouteId": "onemap-transit-cc55cf861f8874a8",
+          "source": "immediate-transit",
+          "departureTime": "2026-09-19T00:13:40.456Z",
+          "departureDelayMin": 0,
+          "durationMin": 50,
+          "modes": [
+            "walk",
+            "train"
+          ]
+        },
+        {
+          "routeId": "onemap-bike-transit-23ddb99522b335ae",
+          "baseRouteId": "onemap-bike-transit-23ddb99522b335ae",
+          "source": "bike-and-ride",
+          "departureTime": "2026-09-19T00:13:44.028Z",
+          "departureDelayMin": 0,
+          "durationMin": 100,
+          "modes": [
+            "cycle",
+            "transfer",
+            "walk",
+            "train"
+          ]
+        },
+        {
+          "routeId": "onemap-bike-transit-e6c9034a88b534fb",
+          "baseRouteId": "onemap-bike-transit-e6c9034a88b534fb",
+          "source": "bike-and-ride",
+          "departureTime": "2026-09-19T00:13:44.028Z",
+          "departureDelayMin": 0,
+          "durationMin": 67,
+          "modes": [
+            "cycle",
+            "transfer",
+            "walk",
+            "train"
+          ]
+        },
+        {
+          "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829634",
+          "baseRouteId": "onemap-transit-cc55cf861f8874a8",
+          "source": "later-transit",
+          "departureTime": "2026-09-19T00:33:41.632Z",
+          "departureDelayMin": 20,
+          "durationMin": 49,
+          "modes": [
+            "walk",
+            "train"
+          ]
+        },
+        {
+          "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829654",
+          "baseRouteId": "onemap-transit-cc55cf861f8874a8",
+          "source": "later-transit",
+          "departureTime": "2026-09-19T00:53:42.710Z",
+          "departureDelayMin": 40,
+          "durationMin": 50,
+          "modes": [
+            "walk",
+            "train"
+          ]
+        }
+      ],
+      "existingWinner": {
+        "routeId": "onemap-transit-cc55cf861f8874a8",
+        "modes": [
+          "walk",
+          "train"
+        ],
+        "durationMin": 50,
+        "existingScore": 96
+      },
+      "personalBaselineRouteId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+      "userFacingBestMatchRouteId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+      "userFacingSource": "network-aware",
+      "networkAwareWinner": {
+        "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+        "modes": [
+          "walk",
+          "train"
+        ],
+        "durationMin": 50,
+        "personalCost": 81,
+        "networkCost": 0,
+        "fairnessPenalty": 0,
+        "switchingCost": 0,
+        "totalCost": 81,
+        "bottleneckResourceId": "STATION_NE17",
+        "bottleneckResourceName": "PUNGGOL MRT STATION",
+        "crowdRisk": "LOW",
+        "reason": "This route won primarily on personal generalized cost, not network pressure.",
+        "decisionReasonCode": "PERSONAL_PREFERENCE",
+        "candidateSource": "immediate-transit",
+        "departureDelayMin": 0
+      },
+      "sameWinner": true,
+      "travelTimeDifferenceMin": 0,
+      "routes": [
+        {
+          "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+          "personalCost": 81,
+          "networkCost": 0,
+          "fairnessPenalty": 0,
+          "switchingCost": 0,
+          "totalCost": 81,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_NE17",
+          "bottleneckResourceName": "PUNGGOL MRT STATION",
+          "reason": "This route won primarily on personal generalized cost, not network pressure.",
+          "decisionReasonCode": "PERSONAL_PREFERENCE",
+          "resources": [
+            {
+              "resourceId": "STATION_NE17",
+              "resourceType": "STATION",
+              "resourceName": "PUNGGOL MRT STATION",
+              "targetTimeMs": 1789776940456,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789779342710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NEL_NE17_NE1",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NEL PUNGGOL MRT STATION to HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789777930456,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789780332710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NE1",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789778920456,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781322710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC29",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789778920456,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781322710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_CCL_CC29_CC23",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "CCL HARBOURFRONT MRT STATION to ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789779280456,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781682710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC23",
+              "resourceType": "STATION",
+              "resourceName": "ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789779640456,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789782042710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        },
+        {
+          "routeId": "onemap-bike-transit-e6c9034a88b534fb",
+          "personalCost": 118,
+          "networkCost": 0,
+          "fairnessPenalty": 100,
+          "switchingCost": 3,
+          "totalCost": 221,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_NE16",
+          "bottleneckResourceName": "SENGKANG MRT STATION",
+          "reason": "This alternative must be meaningfully better before replacing the current recommendation.",
+          "decisionReasonCode": "FAIRNESS_GUARDRAIL",
+          "resources": [
+            {
+              "resourceId": "STATION_NE16",
+              "resourceType": "STATION",
+              "resourceName": "SENGKANG MRT STATION",
+              "targetTimeMs": 1789778204028,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778204028,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NEL_NE16_NE1",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NEL SENGKANG MRT STATION to HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789779104028,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789779104028,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NE1",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789780004028,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781322710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC29",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789780004028,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781322710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_CCL_CC29_CC23",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "CCL HARBOURFRONT MRT STATION to ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789780364028,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781682710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC23",
+              "resourceType": "STATION",
+              "resourceName": "ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789780724028,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789782042710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        },
+        {
+          "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829634",
+          "personalCost": 100,
+          "networkCost": 0,
+          "fairnessPenalty": 123,
+          "switchingCost": 3,
+          "totalCost": 226,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_NE17",
+          "bottleneckResourceName": "PUNGGOL MRT STATION",
+          "reason": "This alternative must be meaningfully better before replacing the current recommendation.",
+          "decisionReasonCode": "FAIRNESS_GUARDRAIL",
+          "resources": [
+            {
+              "resourceId": "STATION_NE17",
+              "resourceType": "STATION",
+              "resourceName": "PUNGGOL MRT STATION",
+              "targetTimeMs": 1789778141632,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789779342710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NEL_NE17_NE1",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NEL PUNGGOL MRT STATION to HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789779131632,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789780332710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NE1",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789780121632,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781322710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC29",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789780121632,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781322710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_CCL_CC29_CC23",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "CCL HARBOURFRONT MRT STATION to ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789780481632,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781682710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC23",
+              "resourceType": "STATION",
+              "resourceName": "ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789780841632,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789782042710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        },
+        {
+          "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829654",
+          "personalCost": 121,
+          "networkCost": 0,
+          "fairnessPenalty": 380,
+          "switchingCost": 3,
+          "totalCost": 504,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "RAIL_NEL_NE17_NE1",
+          "bottleneckResourceName": "NEL PUNGGOL MRT STATION to HARBOURFRONT MRT STATION",
+          "reason": "This alternative must be meaningfully better before replacing the current recommendation.",
+          "decisionReasonCode": "FAIRNESS_GUARDRAIL",
+          "resources": [
+            {
+              "resourceId": "STATION_NE17",
+              "resourceType": "STATION",
+              "resourceName": "PUNGGOL MRT STATION",
+              "targetTimeMs": 1789779342710,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789779342710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NEL_NE17_NE1",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NEL PUNGGOL MRT STATION to HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789780332710,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789780332710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NE1",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789781322710,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781322710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC29",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789781322710,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781322710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_CCL_CC29_CC23",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "CCL HARBOURFRONT MRT STATION to ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789781682710,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781682710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC23",
+              "resourceType": "STATION",
+              "resourceName": "ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789782042710,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789782042710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        },
+        {
+          "routeId": "onemap-bike-transit-23ddb99522b335ae",
+          "personalCost": 331,
+          "networkCost": 0,
+          "fairnessPenalty": 501,
+          "switchingCost": 3,
+          "totalCost": 835,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_NE15",
+          "bottleneckResourceName": "BUANGKOK MRT STATION",
+          "reason": "This alternative must be meaningfully better before replacing the current recommendation.",
+          "decisionReasonCode": "FAIRNESS_GUARDRAIL",
+          "resources": [
+            {
+              "resourceId": "STATION_NE15",
+              "resourceType": "STATION",
+              "resourceName": "BUANGKOK MRT STATION",
+              "targetTimeMs": 1789780304028,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789780304028,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NEL_NE15_NE1",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NEL BUANGKOK MRT STATION to HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789781144028,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781144028,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NE1",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789781984028,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781322710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC29",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789781984028,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781322710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_CCL_CC29_CC23",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "CCL HARBOURFRONT MRT STATION to ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789782344028,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781682710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC23",
+              "resourceType": "STATION",
+              "resourceName": "ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789782704028,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789782042710,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        }
+      ],
+      "flags": [
+        "FLAG_COST_CAP",
+        "FLAG_EARLY_SATURATION"
+      ]
+    },
+    {
+      "origin": "Tampines",
+      "destination": "Raffles Place",
+      "mode": "transit",
+      "testTimestamp": "2026-09-19T00:13:46.742Z",
+      "departureTime": "2026-09-19T00:13:45.755Z",
+      "routeCount": 1,
+      "shadowCandidateCount": 1,
+      "shadowCandidates": [
+        {
+          "routeId": "onemap-transit-6f8ef7a47a01b502",
+          "baseRouteId": "onemap-transit-6f8ef7a47a01b502",
+          "source": "transit",
+          "departureTime": "2026-09-19T00:13:45.755Z",
+          "departureDelayMin": 0,
+          "durationMin": 31,
+          "modes": [
+            "walk",
+            "train"
+          ]
+        }
+      ],
+      "existingWinner": {
+        "routeId": "onemap-transit-6f8ef7a47a01b502",
+        "modes": [
+          "walk",
+          "train"
+        ],
+        "durationMin": 31,
+        "existingScore": 58
+      },
+      "personalBaselineRouteId": "onemap-transit-6f8ef7a47a01b502",
+      "userFacingBestMatchRouteId": "onemap-transit-6f8ef7a47a01b502",
+      "userFacingSource": "network-aware",
+      "networkAwareWinner": {
+        "routeId": "onemap-transit-6f8ef7a47a01b502",
+        "modes": [
+          "walk",
+          "train"
+        ],
+        "durationMin": 31,
+        "personalCost": 43,
+        "networkCost": 0,
+        "fairnessPenalty": 0,
+        "switchingCost": 0,
+        "totalCost": 43,
+        "bottleneckResourceId": "STATION_EW2",
+        "bottleneckResourceName": "TAMPINES MRT STATION",
+        "crowdRisk": "LOW",
+        "reason": "This route won primarily on personal generalized cost, not network pressure.",
+        "decisionReasonCode": "PERSONAL_PREFERENCE",
+        "departureDelayMin": 0
+      },
+      "sameWinner": true,
+      "travelTimeDifferenceMin": 0,
+      "routes": [
+        {
+          "routeId": "onemap-transit-6f8ef7a47a01b502",
+          "personalCost": 43,
+          "networkCost": 0,
+          "fairnessPenalty": 0,
+          "switchingCost": 0,
+          "totalCost": 43,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_EW2",
+          "bottleneckResourceName": "TAMPINES MRT STATION",
+          "reason": "This route won primarily on personal generalized cost, not network pressure.",
+          "decisionReasonCode": "PERSONAL_PREFERENCE",
+          "resources": [
+            {
+              "resourceId": "STATION_EW2",
+              "resourceType": "STATION",
+              "resourceName": "TAMPINES MRT STATION",
+              "targetTimeMs": 1789777005755,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777005755,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_EWL_EW2_EW14",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "EWL TAMPINES MRT STATION to RAFFLES PLACE MRT STATION",
+              "targetTimeMs": 1789777845755,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777845755,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_EW14",
+              "resourceType": "STATION",
+              "resourceName": "RAFFLES PLACE MRT STATION",
+              "targetTimeMs": 1789778685755,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778685755,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        }
+      ],
+      "flags": []
+    },
+    {
+      "origin": "Woodlands",
+      "destination": "Orchard",
+      "mode": "transit",
+      "testTimestamp": "2026-09-19T00:13:47.565Z",
+      "departureTime": "2026-09-19T00:13:46.756Z",
+      "routeCount": 1,
+      "shadowCandidateCount": 1,
+      "shadowCandidates": [
+        {
+          "routeId": "onemap-transit-19cdc5062f5932d3",
+          "baseRouteId": "onemap-transit-19cdc5062f5932d3",
+          "source": "transit",
+          "departureTime": "2026-09-19T00:13:46.756Z",
+          "departureDelayMin": 0,
+          "durationMin": 38,
+          "modes": [
+            "walk",
+            "train"
+          ]
+        }
+      ],
+      "existingWinner": {
+        "routeId": "onemap-transit-19cdc5062f5932d3",
+        "modes": [
+          "walk",
+          "train"
+        ],
+        "durationMin": 38,
+        "existingScore": 63
+      },
+      "personalBaselineRouteId": "onemap-transit-19cdc5062f5932d3",
+      "userFacingBestMatchRouteId": "onemap-transit-19cdc5062f5932d3",
+      "userFacingSource": "network-aware",
+      "networkAwareWinner": {
+        "routeId": "onemap-transit-19cdc5062f5932d3",
+        "modes": [
+          "walk",
+          "train"
+        ],
+        "durationMin": 38,
+        "personalCost": 48,
+        "networkCost": 0,
+        "fairnessPenalty": 0,
+        "switchingCost": 0,
+        "totalCost": 48,
+        "bottleneckResourceId": "STATION_NS9",
+        "bottleneckResourceName": "WOODLANDS MRT STATION",
+        "crowdRisk": "LOW",
+        "reason": "This route won primarily on personal generalized cost, not network pressure.",
+        "decisionReasonCode": "PERSONAL_PREFERENCE",
+        "departureDelayMin": 0
+      },
+      "sameWinner": true,
+      "travelTimeDifferenceMin": 0,
+      "routes": [
+        {
+          "routeId": "onemap-transit-19cdc5062f5932d3",
+          "personalCost": 48,
+          "networkCost": 0,
+          "fairnessPenalty": 0,
+          "switchingCost": 0,
+          "totalCost": 48,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_NS9",
+          "bottleneckResourceName": "WOODLANDS MRT STATION",
+          "reason": "This route won primarily on personal generalized cost, not network pressure.",
+          "decisionReasonCode": "PERSONAL_PREFERENCE",
+          "resources": [
+            {
+              "resourceId": "STATION_NS9",
+              "resourceType": "STATION",
+              "resourceName": "WOODLANDS MRT STATION",
+              "targetTimeMs": 1789776886756,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789776886756,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NSL_NS9_NS22",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NSL WOODLANDS MRT STATION to ORCHARD MRT STATION",
+              "targetTimeMs": 1789777996756,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777996756,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NS22",
+              "resourceType": "STATION",
+              "resourceName": "ORCHARD MRT STATION",
+              "targetTimeMs": 1789779106756,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789779106756,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        }
+      ],
+      "flags": []
+    },
+    {
+      "origin": "Sengkang",
+      "destination": "Buona Vista",
+      "mode": "transit",
+      "testTimestamp": "2026-09-19T00:13:49.139Z",
+      "departureTime": "2026-09-19T00:13:47.574Z",
+      "routeCount": 1,
+      "shadowCandidateCount": 1,
+      "shadowCandidates": [
+        {
+          "routeId": "onemap-transit-2ffb45eb2c527ea5",
+          "baseRouteId": "onemap-transit-2ffb45eb2c527ea5",
+          "source": "transit",
+          "departureTime": "2026-09-19T00:13:47.574Z",
+          "departureDelayMin": 0,
+          "durationMin": 49,
+          "modes": [
+            "walk",
+            "train"
+          ]
+        }
+      ],
+      "existingWinner": {
+        "routeId": "onemap-transit-2ffb45eb2c527ea5",
+        "modes": [
+          "walk",
+          "train"
+        ],
+        "durationMin": 49,
+        "existingScore": 95
+      },
+      "personalBaselineRouteId": "onemap-transit-2ffb45eb2c527ea5",
+      "userFacingBestMatchRouteId": "onemap-transit-2ffb45eb2c527ea5",
+      "userFacingSource": "network-aware",
+      "networkAwareWinner": {
+        "routeId": "onemap-transit-2ffb45eb2c527ea5",
+        "modes": [
+          "walk",
+          "train"
+        ],
+        "durationMin": 49,
+        "personalCost": 80,
+        "networkCost": 0,
+        "fairnessPenalty": 0,
+        "switchingCost": 0,
+        "totalCost": 80,
+        "bottleneckResourceId": "STATION_NE16",
+        "bottleneckResourceName": "SENGKANG MRT STATION",
+        "crowdRisk": "LOW",
+        "reason": "This route won primarily on personal generalized cost, not network pressure.",
+        "decisionReasonCode": "PERSONAL_PREFERENCE",
+        "departureDelayMin": 0
+      },
+      "sameWinner": true,
+      "travelTimeDifferenceMin": 0,
+      "routes": [
+        {
+          "routeId": "onemap-transit-2ffb45eb2c527ea5",
+          "personalCost": 80,
+          "networkCost": 0,
+          "fairnessPenalty": 0,
+          "switchingCost": 0,
+          "totalCost": 80,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_NE16",
+          "bottleneckResourceName": "SENGKANG MRT STATION",
+          "reason": "This route won primarily on personal generalized cost, not network pressure.",
+          "decisionReasonCode": "PERSONAL_PREFERENCE",
+          "resources": [
+            {
+              "resourceId": "STATION_NE16",
+              "resourceType": "STATION",
+              "resourceName": "SENGKANG MRT STATION",
+              "targetTimeMs": 1789776887574,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789776887574,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NEL_NE16_NE1",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NEL SENGKANG MRT STATION to HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789777787574,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777787574,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NE1",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789778687574,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778687574,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC29",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789778687574,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778687574,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_CCL_CC29_CC22",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "CCL HARBOURFRONT MRT STATION to BUONA VISTA MRT STATION",
+              "targetTimeMs": 1789779107574,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789779107574,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC22",
+              "resourceType": "STATION",
+              "resourceName": "BUONA VISTA MRT STATION",
+              "targetTimeMs": 1789779527574,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789779527574,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        }
+      ],
+      "flags": []
+    },
+    {
+      "origin": "Jurong East",
+      "destination": "Paya Lebar",
+      "mode": "transit",
+      "testTimestamp": "2026-09-19T00:13:50.296Z",
+      "departureTime": "2026-09-19T00:13:49.150Z",
+      "routeCount": 1,
+      "shadowCandidateCount": 1,
+      "shadowCandidates": [
+        {
+          "routeId": "onemap-transit-ff8ec20e3f9142c2",
+          "baseRouteId": "onemap-transit-ff8ec20e3f9142c2",
+          "source": "transit",
+          "departureTime": "2026-09-19T00:13:49.150Z",
+          "departureDelayMin": 0,
+          "durationMin": 39,
+          "modes": [
+            "walk",
+            "train"
+          ]
+        }
+      ],
+      "existingWinner": {
+        "routeId": "onemap-transit-ff8ec20e3f9142c2",
+        "modes": [
+          "walk",
+          "train"
+        ],
+        "durationMin": 39,
+        "existingScore": 65
+      },
+      "personalBaselineRouteId": "onemap-transit-ff8ec20e3f9142c2",
+      "userFacingBestMatchRouteId": "onemap-transit-ff8ec20e3f9142c2",
+      "userFacingSource": "network-aware",
+      "networkAwareWinner": {
+        "routeId": "onemap-transit-ff8ec20e3f9142c2",
+        "modes": [
+          "walk",
+          "train"
+        ],
+        "durationMin": 39,
+        "personalCost": 50,
+        "networkCost": 0,
+        "fairnessPenalty": 0,
+        "switchingCost": 0,
+        "totalCost": 50,
+        "bottleneckResourceId": "STATION_EW24",
+        "bottleneckResourceName": "JURONG EAST MRT STATION",
+        "crowdRisk": "LOW",
+        "reason": "This route won primarily on personal generalized cost, not network pressure.",
+        "decisionReasonCode": "PERSONAL_PREFERENCE",
+        "departureDelayMin": 0
+      },
+      "sameWinner": true,
+      "travelTimeDifferenceMin": 0,
+      "routes": [
+        {
+          "routeId": "onemap-transit-ff8ec20e3f9142c2",
+          "personalCost": 50,
+          "networkCost": 0,
+          "fairnessPenalty": 0,
+          "switchingCost": 0,
+          "totalCost": 50,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_EW24",
+          "bottleneckResourceName": "JURONG EAST MRT STATION",
+          "reason": "This route won primarily on personal generalized cost, not network pressure.",
+          "decisionReasonCode": "PERSONAL_PREFERENCE",
+          "resources": [
+            {
+              "resourceId": "STATION_EW24",
+              "resourceType": "STATION",
+              "resourceName": "JURONG EAST MRT STATION",
+              "targetTimeMs": 1789776949150,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789776949150,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_EWL_EW24_EW8",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "EWL JURONG EAST MRT STATION to PAYA LEBAR MRT STATION",
+              "targetTimeMs": 1789778059150,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778059150,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_EW8",
+              "resourceType": "STATION",
+              "resourceName": "PAYA LEBAR MRT STATION",
+              "targetTimeMs": 1789779169150,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789779169150,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        }
+      ],
+      "flags": []
+    },
+    {
+      "origin": "Bedok",
+      "destination": "one-north",
+      "mode": "transit",
+      "testTimestamp": "2026-09-19T00:13:51.655Z",
+      "departureTime": "2026-09-19T00:13:50.374Z",
+      "routeCount": 1,
+      "shadowCandidateCount": 1,
+      "shadowCandidates": [
+        {
+          "routeId": "onemap-transit-04cf5aea6ef4bd64",
+          "baseRouteId": "onemap-transit-04cf5aea6ef4bd64",
+          "source": "transit",
+          "departureTime": "2026-09-19T00:13:50.374Z",
+          "departureDelayMin": 0,
+          "durationMin": 41,
+          "modes": [
+            "walk",
+            "train",
+            "transfer"
+          ]
+        }
+      ],
+      "existingWinner": {
+        "routeId": "onemap-transit-04cf5aea6ef4bd64",
+        "modes": [
+          "walk",
+          "train",
+          "transfer"
+        ],
+        "durationMin": 41,
+        "existingScore": 88
+      },
+      "personalBaselineRouteId": "onemap-transit-04cf5aea6ef4bd64",
+      "userFacingBestMatchRouteId": "onemap-transit-04cf5aea6ef4bd64",
+      "userFacingSource": "network-aware",
+      "networkAwareWinner": {
+        "routeId": "onemap-transit-04cf5aea6ef4bd64",
+        "modes": [
+          "walk",
+          "train",
+          "transfer"
+        ],
+        "durationMin": 41,
+        "personalCost": 73,
+        "networkCost": 0,
+        "fairnessPenalty": 0,
+        "switchingCost": 0,
+        "totalCost": 73,
+        "bottleneckResourceId": "STATION_EW5",
+        "bottleneckResourceName": "BEDOK MRT STATION",
+        "crowdRisk": "LOW",
+        "reason": "This route won primarily on personal generalized cost, not network pressure.",
+        "decisionReasonCode": "PERSONAL_PREFERENCE",
+        "departureDelayMin": 0
+      },
+      "sameWinner": true,
+      "travelTimeDifferenceMin": 0,
+      "routes": [
+        {
+          "routeId": "onemap-transit-04cf5aea6ef4bd64",
+          "personalCost": 73,
+          "networkCost": 0,
+          "fairnessPenalty": 0,
+          "switchingCost": 0,
+          "totalCost": 73,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_EW5",
+          "bottleneckResourceName": "BEDOK MRT STATION",
+          "reason": "This route won primarily on personal generalized cost, not network pressure.",
+          "decisionReasonCode": "PERSONAL_PREFERENCE",
+          "resources": [
+            {
+              "resourceId": "STATION_EW5",
+              "resourceType": "STATION",
+              "resourceName": "BEDOK MRT STATION",
+              "targetTimeMs": 1789776890374,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789776890374,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_EWL_EW5_EW21",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "EWL BEDOK MRT STATION to BUONA VISTA MRT STATION",
+              "targetTimeMs": 1789777910374,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777910374,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_EW21",
+              "resourceType": "STATION",
+              "resourceName": "BUONA VISTA MRT STATION",
+              "targetTimeMs": 1789778930374,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778930374,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC22",
+              "resourceType": "STATION",
+              "resourceName": "BUONA VISTA MRT STATION",
+              "targetTimeMs": 1789779050374,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789779050374,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_CCL_CC22_CC23",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "CCL BUONA VISTA MRT STATION to ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789779080374,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789779080374,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC23",
+              "resourceType": "STATION",
+              "resourceName": "ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789779110374,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789779110374,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        }
+      ],
+      "flags": []
+    },
+    {
+      "origin": "Punggol",
+      "destination": "Raffles Place",
+      "mode": "transit",
+      "testTimestamp": "2026-09-19T00:13:53.020Z",
+      "departureTime": "2026-09-19T00:13:51.672Z",
+      "routeCount": 1,
+      "shadowCandidateCount": 1,
+      "shadowCandidates": [
+        {
+          "routeId": "onemap-transit-dcef9aee7783edfb",
+          "baseRouteId": "onemap-transit-dcef9aee7783edfb",
+          "source": "transit",
+          "departureTime": "2026-09-19T00:13:51.672Z",
+          "departureDelayMin": 0,
+          "durationMin": 35,
+          "modes": [
+            "walk",
+            "train",
+            "transfer"
+          ]
+        }
+      ],
+      "existingWinner": {
+        "routeId": "onemap-transit-dcef9aee7783edfb",
+        "modes": [
+          "walk",
+          "train",
+          "transfer"
+        ],
+        "durationMin": 35,
+        "existingScore": 84
+      },
+      "personalBaselineRouteId": "onemap-transit-dcef9aee7783edfb",
+      "userFacingBestMatchRouteId": "onemap-transit-dcef9aee7783edfb",
+      "userFacingSource": "network-aware",
+      "networkAwareWinner": {
+        "routeId": "onemap-transit-dcef9aee7783edfb",
+        "modes": [
+          "walk",
+          "train",
+          "transfer"
+        ],
+        "durationMin": 35,
+        "personalCost": 69,
+        "networkCost": 0,
+        "fairnessPenalty": 0,
+        "switchingCost": 0,
+        "totalCost": 69,
+        "bottleneckResourceId": "STATION_NE17",
+        "bottleneckResourceName": "PUNGGOL MRT STATION",
+        "crowdRisk": "LOW",
+        "reason": "This route won primarily on personal generalized cost, not network pressure.",
+        "decisionReasonCode": "PERSONAL_PREFERENCE",
+        "departureDelayMin": 0
+      },
+      "sameWinner": true,
+      "travelTimeDifferenceMin": 0,
+      "routes": [
+        {
+          "routeId": "onemap-transit-dcef9aee7783edfb",
+          "personalCost": 69,
+          "networkCost": 0,
+          "fairnessPenalty": 0,
+          "switchingCost": 0,
+          "totalCost": 69,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_NE17",
+          "bottleneckResourceName": "PUNGGOL MRT STATION",
+          "reason": "This route won primarily on personal generalized cost, not network pressure.",
+          "decisionReasonCode": "PERSONAL_PREFERENCE",
+          "resources": [
+            {
+              "resourceId": "STATION_NE17",
+              "resourceType": "STATION",
+              "resourceName": "PUNGGOL MRT STATION",
+              "targetTimeMs": 1789776951672,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789776951672,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NEL_NE17_NE6",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NEL PUNGGOL MRT STATION to DHOBY GHAUT MRT STATION",
+              "targetTimeMs": 1789777641672,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777641672,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NE6",
+              "resourceType": "STATION",
+              "resourceName": "DHOBY GHAUT MRT STATION",
+              "targetTimeMs": 1789778331672,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778331672,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NS24",
+              "resourceType": "STATION",
+              "resourceName": "DHOBY GHAUT MRT STATION",
+              "targetTimeMs": 1789778511672,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778511672,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NSL_NS24_NS26",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NSL DHOBY GHAUT MRT STATION to RAFFLES PLACE MRT STATION",
+              "targetTimeMs": 1789778601672,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778601672,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NS26",
+              "resourceType": "STATION",
+              "resourceName": "RAFFLES PLACE MRT STATION",
+              "targetTimeMs": 1789778691672,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778691672,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        }
+      ],
+      "flags": []
+    },
+    {
+      "origin": "Bishan",
+      "destination": "Tampines",
+      "mode": "transit",
+      "testTimestamp": "2026-09-19T00:13:54.480Z",
+      "departureTime": "2026-09-19T00:13:53.030Z",
+      "routeCount": 2,
+      "shadowCandidateCount": 2,
+      "shadowCandidates": [
+        {
+          "routeId": "onemap-transit-5373e8ec92b738ae",
+          "baseRouteId": "onemap-transit-5373e8ec92b738ae",
+          "source": "transit",
+          "departureTime": "2026-09-19T00:13:53.030Z",
+          "departureDelayMin": 0,
+          "durationMin": 39,
+          "modes": [
+            "walk",
+            "train",
+            "transfer"
+          ]
+        },
+        {
+          "routeId": "onemap-transit-57e52f41ee04d937",
+          "baseRouteId": "onemap-transit-57e52f41ee04d937",
+          "source": "transit",
+          "departureTime": "2026-09-19T00:13:53.030Z",
+          "departureDelayMin": 0,
+          "durationMin": 47,
+          "modes": [
+            "walk",
+            "train"
+          ]
+        }
+      ],
+      "existingWinner": {
+        "routeId": "onemap-transit-5373e8ec92b738ae",
+        "modes": [
+          "walk",
+          "train",
+          "transfer"
+        ],
+        "durationMin": 39,
+        "existingScore": 91
+      },
+      "personalBaselineRouteId": "onemap-transit-5373e8ec92b738ae",
+      "userFacingBestMatchRouteId": "onemap-transit-5373e8ec92b738ae",
+      "userFacingSource": "network-aware",
+      "networkAwareWinner": {
+        "routeId": "onemap-transit-5373e8ec92b738ae",
+        "modes": [
+          "walk",
+          "train",
+          "transfer"
+        ],
+        "durationMin": 39,
+        "personalCost": 76,
+        "networkCost": 0,
+        "fairnessPenalty": 0,
+        "switchingCost": 0,
+        "totalCost": 76,
+        "bottleneckResourceId": "STATION_CC15",
+        "bottleneckResourceName": "BISHAN MRT STATION",
+        "crowdRisk": "LOW",
+        "reason": "This route won primarily on personal generalized cost, not network pressure.",
+        "decisionReasonCode": "PERSONAL_PREFERENCE",
+        "departureDelayMin": 0
+      },
+      "sameWinner": true,
+      "travelTimeDifferenceMin": 0,
+      "routes": [
+        {
+          "routeId": "onemap-transit-5373e8ec92b738ae",
+          "personalCost": 76,
+          "networkCost": 0,
+          "fairnessPenalty": 0,
+          "switchingCost": 0,
+          "totalCost": 76,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_CC15",
+          "bottleneckResourceName": "BISHAN MRT STATION",
+          "reason": "This route won primarily on personal generalized cost, not network pressure.",
+          "decisionReasonCode": "PERSONAL_PREFERENCE",
+          "resources": [
+            {
+              "resourceId": "STATION_CC15",
+              "resourceType": "STATION",
+              "resourceName": "BISHAN MRT STATION",
+              "targetTimeMs": 1789777073030,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777073030,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_CCL_CC15_CC9",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "CCL BISHAN MRT STATION to PAYA LEBAR MRT STATION",
+              "targetTimeMs": 1789777433030,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777433030,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC9",
+              "resourceType": "STATION",
+              "resourceName": "PAYA LEBAR MRT STATION",
+              "targetTimeMs": 1789777793030,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777793030,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_EW8",
+              "resourceType": "STATION",
+              "resourceName": "PAYA LEBAR MRT STATION",
+              "targetTimeMs": 1789777913030,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777913030,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_EWL_EW8_EW2",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "EWL PAYA LEBAR MRT STATION to TAMPINES MRT STATION",
+              "targetTimeMs": 1789778393030,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778393030,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_EW2",
+              "resourceType": "STATION",
+              "resourceName": "TAMPINES MRT STATION",
+              "targetTimeMs": 1789778873030,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789779353030,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        },
+        {
+          "routeId": "onemap-transit-57e52f41ee04d937",
+          "personalCost": 79,
+          "networkCost": 0,
+          "fairnessPenalty": 9,
+          "switchingCost": 3,
+          "totalCost": 91,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_NS17",
+          "bottleneckResourceName": "BISHAN MRT STATION",
+          "reason": "This alternative must be meaningfully better before replacing the current recommendation.",
+          "decisionReasonCode": "PERSONAL_PREFERENCE",
+          "resources": [
+            {
+              "resourceId": "STATION_NS17",
+              "resourceType": "STATION",
+              "resourceName": "BISHAN MRT STATION",
+              "targetTimeMs": 1789776893030,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789776893030,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NSL_NS17_NS25",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NSL BISHAN MRT STATION to CITY HALL MRT STATION",
+              "targetTimeMs": 1789777343030,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777343030,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NS25",
+              "resourceType": "STATION",
+              "resourceName": "CITY HALL MRT STATION",
+              "targetTimeMs": 1789777793030,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777793030,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_EW13",
+              "resourceType": "STATION",
+              "resourceName": "CITY HALL MRT STATION",
+              "targetTimeMs": 1789777793030,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777793030,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_EWL_EW13_EW2",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "EWL CITY HALL MRT STATION to TAMPINES MRT STATION",
+              "targetTimeMs": 1789778573030,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778573030,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_EW2",
+              "resourceType": "STATION",
+              "resourceName": "TAMPINES MRT STATION",
+              "targetTimeMs": 1789779353030,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789779353030,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        }
+      ],
+      "flags": []
+    },
+    {
+      "origin": "Clementi",
+      "destination": "Dhoby Ghaut",
+      "mode": "transit",
+      "testTimestamp": "2026-09-19T00:13:55.639Z",
+      "departureTime": "2026-09-19T00:13:54.492Z",
+      "routeCount": 3,
+      "shadowCandidateCount": 3,
+      "shadowCandidates": [
+        {
+          "routeId": "onemap-transit-8c5d0ef262be9a66",
+          "baseRouteId": "onemap-transit-8c5d0ef262be9a66",
+          "source": "transit",
+          "departureTime": "2026-09-19T00:13:54.492Z",
+          "departureDelayMin": 0,
+          "durationMin": 28,
+          "modes": [
+            "train",
+            "walk"
+          ]
+        },
+        {
+          "routeId": "onemap-transit-23eda2a5f46bb8ef",
+          "baseRouteId": "onemap-transit-23eda2a5f46bb8ef",
+          "source": "transit",
+          "departureTime": "2026-09-19T00:13:54.492Z",
+          "departureDelayMin": 0,
+          "durationMin": 40,
+          "modes": [
+            "walk",
+            "bus"
+          ]
+        },
+        {
+          "routeId": "onemap-transit-679a942359179092",
+          "baseRouteId": "onemap-transit-679a942359179092",
+          "source": "transit",
+          "departureTime": "2026-09-19T00:13:54.492Z",
+          "departureDelayMin": 0,
+          "durationMin": 41,
+          "modes": [
+            "walk",
+            "bus"
+          ]
+        }
+      ],
+      "existingWinner": {
+        "routeId": "onemap-transit-23eda2a5f46bb8ef",
+        "modes": [
+          "walk",
+          "bus"
+        ],
+        "durationMin": 40,
+        "existingScore": 67
+      },
+      "personalBaselineRouteId": "onemap-transit-23eda2a5f46bb8ef",
+      "userFacingBestMatchRouteId": "onemap-transit-23eda2a5f46bb8ef",
+      "userFacingSource": "network-aware",
+      "networkAwareWinner": {
+        "routeId": "onemap-transit-23eda2a5f46bb8ef",
+        "modes": [
+          "walk",
+          "bus"
+        ],
+        "durationMin": 40,
+        "personalCost": 52,
+        "networkCost": 2,
+        "fairnessPenalty": 0,
+        "switchingCost": 0,
+        "totalCost": 54,
+        "bottleneckResourceId": "BUS_SERVICE_106",
+        "bottleneckResourceName": "Bus 106",
+        "crowdRisk": "LOW",
+        "reason": "Some route resources remain unknown, so conservative uncertainty treatment was applied.",
+        "decisionReasonCode": "UNKNOWN_DATA_CAUTION",
+        "departureDelayMin": 0
+      },
+      "sameWinner": true,
+      "travelTimeDifferenceMin": 0,
+      "routes": [
+        {
+          "routeId": "onemap-transit-23eda2a5f46bb8ef",
+          "personalCost": 52,
+          "networkCost": 2,
+          "fairnessPenalty": 0,
+          "switchingCost": 0,
+          "totalCost": 54,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "BUS_SERVICE_106",
+          "bottleneckResourceName": "Bus 106",
+          "reason": "Some route resources remain unknown, so conservative uncertainty treatment was applied.",
+          "decisionReasonCode": "UNKNOWN_DATA_CAUTION",
+          "resources": [
+            {
+              "resourceId": "BUS_SERVICE_106",
+              "resourceType": "BUS_SERVICE",
+              "resourceName": "Bus 106",
+              "targetTimeMs": 1789776954492,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "BUS_STOP_17179",
+              "resourceType": "BUS_STOP",
+              "resourceName": "CLEMENTI STN EXIT B",
+              "targetTimeMs": 1789776954492,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "BUS_STOP_08057",
+              "resourceType": "BUS_STOP",
+              "resourceName": "DHOBY GHAUT STN",
+              "targetTimeMs": 1789779054492,
+              "crowdRisk": "UNKNOWN",
+              "currentCrowd": "UNKNOWN",
+              "disrupted": false,
+              "ledgerDemand": 0,
+              "provenance": [
+                "UNKNOWN"
+              ]
+            }
+          ]
+        },
+        {
+          "routeId": "onemap-transit-679a942359179092",
+          "personalCost": 54,
+          "networkCost": 2,
+          "fairnessPenalty": 0,
+          "switchingCost": 3,
+          "totalCost": 59,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "BUS_SERVICE_7",
+          "bottleneckResourceName": "Bus 7",
+          "reason": "Some network resources lack observations, so a conservative uncertainty penalty was applied.",
+          "decisionReasonCode": "UNKNOWN_DATA_CAUTION",
+          "resources": [
+            {
+              "resourceId": "BUS_SERVICE_7",
+              "resourceType": "BUS_SERVICE",
+              "resourceName": "Bus 7",
+              "targetTimeMs": 1789777014492,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "BUS_STOP_17009",
+              "resourceType": "BUS_STOP",
+              "resourceName": "CLEMENTI INT",
+              "targetTimeMs": 1789777014492,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "BUS_STOP_08057",
+              "resourceType": "BUS_STOP",
+              "resourceName": "DHOBY GHAUT STN",
+              "targetTimeMs": 1789779234492,
+              "crowdRisk": "UNKNOWN",
+              "currentCrowd": "UNKNOWN",
+              "disrupted": false,
+              "ledgerDemand": 0,
+              "provenance": [
+                "UNKNOWN"
+              ]
+            }
+          ]
+        },
+        {
+          "routeId": "onemap-transit-8c5d0ef262be9a66",
+          "personalCost": 57,
+          "networkCost": 0,
+          "fairnessPenalty": 0,
+          "switchingCost": 3,
+          "totalCost": 60,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_EW23",
+          "bottleneckResourceName": "CLEMENTI MRT STATION",
+          "reason": "This alternative must be meaningfully better before replacing the current recommendation.",
+          "decisionReasonCode": "PERSONAL_PREFERENCE",
+          "resources": [
+            {
+              "resourceId": "STATION_EW23",
+              "resourceType": "STATION",
+              "resourceName": "CLEMENTI MRT STATION",
+              "targetTimeMs": 1789776834492,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789776834492,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_EWL_EW23_EW14",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "EWL CLEMENTI MRT STATION to RAFFLES PLACE MRT STATION",
+              "targetTimeMs": 1789777434492,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777434492,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_EW14",
+              "resourceType": "STATION",
+              "resourceName": "RAFFLES PLACE MRT STATION",
+              "targetTimeMs": 1789778034492,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778034492,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NS26",
+              "resourceType": "STATION",
+              "resourceName": "RAFFLES PLACE MRT STATION",
+              "targetTimeMs": 1789778034492,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778034492,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NSL_NS26_NS24",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NSL RAFFLES PLACE MRT STATION to DHOBY GHAUT MRT STATION",
+              "targetTimeMs": 1789778124492,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778124492,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NS24",
+              "resourceType": "STATION",
+              "resourceName": "DHOBY GHAUT MRT STATION",
+              "targetTimeMs": 1789778214492,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778214492,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        }
+      ],
+      "flags": []
+    },
+    {
+      "origin": "HarbourFront",
+      "destination": "Serangoon",
+      "mode": "transit",
+      "testTimestamp": "2026-09-19T00:13:58.204Z",
+      "departureTime": "2026-09-19T00:13:55.864Z",
+      "routeCount": 3,
+      "shadowCandidateCount": 3,
+      "shadowCandidates": [
+        {
+          "routeId": "onemap-transit-07be3b95c710d814",
+          "baseRouteId": "onemap-transit-07be3b95c710d814",
+          "source": "transit",
+          "departureTime": "2026-09-19T00:13:55.864Z",
+          "departureDelayMin": 0,
+          "durationMin": 43,
+          "modes": [
+            "walk",
+            "train",
+            "bus"
+          ]
+        },
+        {
+          "routeId": "onemap-transit-90bcc61358eb7821",
+          "baseRouteId": "onemap-transit-90bcc61358eb7821",
+          "source": "transit",
+          "departureTime": "2026-09-19T00:13:55.864Z",
+          "departureDelayMin": 0,
+          "durationMin": 44,
+          "modes": [
+            "walk",
+            "train",
+            "bus"
+          ]
+        },
+        {
+          "routeId": "onemap-transit-5d6f81bef5ec53bf",
+          "baseRouteId": "onemap-transit-5d6f81bef5ec53bf",
+          "source": "transit",
+          "departureTime": "2026-09-19T00:13:55.864Z",
+          "departureDelayMin": 0,
+          "durationMin": 49,
+          "modes": [
+            "walk",
+            "train",
+            "bus"
+          ]
+        }
+      ],
+      "existingWinner": {
+        "routeId": "onemap-transit-07be3b95c710d814",
+        "modes": [
+          "walk",
+          "train",
+          "bus"
+        ],
+        "durationMin": 43,
+        "existingScore": 107
+      },
+      "personalBaselineRouteId": "onemap-transit-07be3b95c710d814",
+      "userFacingBestMatchRouteId": "onemap-transit-07be3b95c710d814",
+      "userFacingSource": "network-aware",
+      "networkAwareWinner": {
+        "routeId": "onemap-transit-07be3b95c710d814",
+        "modes": [
+          "walk",
+          "train",
+          "bus"
+        ],
+        "durationMin": 43,
+        "personalCost": 92,
+        "networkCost": 2,
+        "fairnessPenalty": 0,
+        "switchingCost": 0,
+        "totalCost": 94,
+        "bottleneckResourceId": "STATION_NE1",
+        "bottleneckResourceName": "HARBOURFRONT MRT STATION",
+        "crowdRisk": "LOW",
+        "reason": "Some route resources remain unknown, so conservative uncertainty treatment was applied.",
+        "decisionReasonCode": "UNKNOWN_DATA_CAUTION",
+        "departureDelayMin": 0
+      },
+      "sameWinner": true,
+      "travelTimeDifferenceMin": 0,
+      "routes": [
+        {
+          "routeId": "onemap-transit-07be3b95c710d814",
+          "personalCost": 92,
+          "networkCost": 2,
+          "fairnessPenalty": 0,
+          "switchingCost": 0,
+          "totalCost": 94,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_NE1",
+          "bottleneckResourceName": "HARBOURFRONT MRT STATION",
+          "reason": "Some route resources remain unknown, so conservative uncertainty treatment was applied.",
+          "decisionReasonCode": "UNKNOWN_DATA_CAUTION",
+          "resources": [
+            {
+              "resourceId": "STATION_NE1",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789776895864,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789776895864,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NEL_NE1_NE10",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NEL HARBOURFRONT MRT STATION to POTONG PASIR MRT STATION",
+              "targetTimeMs": 1789777405864,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777405864,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NE10",
+              "resourceType": "STATION",
+              "resourceName": "POTONG PASIR MRT STATION",
+              "targetTimeMs": 1789777915864,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777915864,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "BUS_SERVICE_107",
+              "resourceType": "BUS_SERVICE",
+              "resourceName": "Bus 107",
+              "targetTimeMs": 1789777975864,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "BUS_STOP_60261",
+              "resourceType": "BUS_STOP",
+              "resourceName": "POTONG PASIR STN EXIT C",
+              "targetTimeMs": 1789777975864,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "BUS_STOP_61139",
+              "resourceType": "BUS_STOP",
+              "resourceName": "WOODLEIGH MALL",
+              "targetTimeMs": 1789778155864,
+              "crowdRisk": "UNKNOWN",
+              "currentCrowd": "UNKNOWN",
+              "disrupted": false,
+              "ledgerDemand": 0,
+              "provenance": [
+                "UNKNOWN"
+              ]
+            }
+          ]
+        },
+        {
+          "routeId": "onemap-transit-90bcc61358eb7821",
+          "personalCost": 93,
+          "networkCost": 2.5,
+          "fairnessPenalty": 0,
+          "switchingCost": 3,
+          "totalCost": 98.5,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_NE1",
+          "bottleneckResourceName": "HARBOURFRONT MRT STATION",
+          "reason": "Some network resources lack observations, so a conservative uncertainty penalty was applied.",
+          "decisionReasonCode": "UNKNOWN_DATA_CAUTION",
+          "resources": [
+            {
+              "resourceId": "STATION_NE1",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789776895864,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789776895864,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NEL_NE1_NE10",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NEL HARBOURFRONT MRT STATION to POTONG PASIR MRT STATION",
+              "targetTimeMs": 1789777405864,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777405864,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NE10",
+              "resourceType": "STATION",
+              "resourceName": "POTONG PASIR MRT STATION",
+              "targetTimeMs": 1789777915864,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777915864,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "BUS_SERVICE_107M",
+              "resourceType": "BUS_SERVICE",
+              "resourceName": "Bus 107M",
+              "targetTimeMs": 1789777975864,
+              "crowdRisk": "UNKNOWN",
+              "currentCrowd": "UNKNOWN",
+              "disrupted": false,
+              "ledgerDemand": 0,
+              "provenance": [
+                "UNKNOWN"
+              ]
+            },
+            {
+              "resourceId": "BUS_STOP_60261",
+              "resourceType": "BUS_STOP",
+              "resourceName": "POTONG PASIR STN EXIT C",
+              "targetTimeMs": 1789777975864,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "BUS_STOP_61139",
+              "resourceType": "BUS_STOP",
+              "resourceName": "WOODLEIGH MALL",
+              "targetTimeMs": 1789778155864,
+              "crowdRisk": "UNKNOWN",
+              "currentCrowd": "UNKNOWN",
+              "disrupted": false,
+              "ledgerDemand": 0,
+              "provenance": [
+                "UNKNOWN"
+              ]
+            }
+          ]
+        },
+        {
+          "routeId": "onemap-transit-5d6f81bef5ec53bf",
+          "personalCost": 98,
+          "networkCost": 2,
+          "fairnessPenalty": 3,
+          "switchingCost": 3,
+          "totalCost": 106,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_NE1",
+          "bottleneckResourceName": "HARBOURFRONT MRT STATION",
+          "reason": "Some network resources lack observations, so a conservative uncertainty penalty was applied.",
+          "decisionReasonCode": "UNKNOWN_DATA_CAUTION",
+          "resources": [
+            {
+              "resourceId": "STATION_NE1",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789776895864,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789776895864,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NEL_NE1_NE11",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NEL HARBOURFRONT MRT STATION to WOODLEIGH MRT STATION",
+              "targetTimeMs": 1789777465864,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789777465864,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NE11",
+              "resourceType": "STATION",
+              "resourceName": "WOODLEIGH MRT STATION",
+              "targetTimeMs": 1789778035864,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778035864,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "BUS_SERVICE_146",
+              "resourceType": "BUS_SERVICE",
+              "resourceName": "Bus 146",
+              "targetTimeMs": 1789778095864,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "BUS_STOP_61039",
+              "resourceType": "BUS_STOP",
+              "resourceName": "WOODLEIGH STN EXIT A",
+              "targetTimeMs": 1789778095864,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "BUS_STOP_61139",
+              "resourceType": "BUS_STOP",
+              "resourceName": "WOODLEIGH MALL",
+              "targetTimeMs": 1789778335864,
+              "crowdRisk": "UNKNOWN",
+              "currentCrowd": "UNKNOWN",
+              "disrupted": false,
+              "ledgerDemand": 0,
+              "provenance": [
+                "UNKNOWN"
+              ]
+            }
+          ]
+        }
+      ],
+      "flags": []
+    },
+    {
+      "origin": "Clementi",
+      "destination": "one-north",
+      "mode": "cycle",
+      "testTimestamp": "2026-09-19T00:13:58.653Z",
+      "departureTime": "2026-09-19T00:13:58.408Z",
+      "routeCount": 1,
+      "shadowCandidateCount": 1,
+      "shadowCandidates": [
+        {
+          "routeId": "onemap-cycle-db0f6d6f45c9e2e5",
+          "baseRouteId": "onemap-cycle-db0f6d6f45c9e2e5",
+          "source": "cycle",
+          "departureTime": "2026-09-19T00:13:58.408Z",
+          "departureDelayMin": 0,
+          "durationMin": 100,
+          "modes": [
+            "cycle"
+          ]
+        }
+      ],
+      "existingWinner": {
+        "routeId": "onemap-cycle-db0f6d6f45c9e2e5",
+        "modes": [
+          "cycle"
+        ],
+        "durationMin": 100,
+        "existingScore": 290
+      },
+      "personalBaselineRouteId": "onemap-cycle-db0f6d6f45c9e2e5",
+      "userFacingBestMatchRouteId": "onemap-cycle-db0f6d6f45c9e2e5",
+      "userFacingSource": "network-aware",
+      "networkAwareWinner": {
+        "routeId": "onemap-cycle-db0f6d6f45c9e2e5",
+        "modes": [
+          "cycle"
+        ],
+        "durationMin": 100,
+        "personalCost": 300,
+        "networkCost": 0,
+        "fairnessPenalty": 0,
+        "switchingCost": 0,
+        "totalCost": 300,
+        "crowdRisk": "UNKNOWN",
+        "reason": "This route won primarily on personal generalized cost, not network pressure.",
+        "decisionReasonCode": "PERSONAL_PREFERENCE",
+        "departureDelayMin": 0
+      },
+      "sameWinner": true,
+      "travelTimeDifferenceMin": 0,
+      "routes": [
+        {
+          "routeId": "onemap-cycle-db0f6d6f45c9e2e5",
+          "personalCost": 300,
+          "networkCost": 0,
+          "fairnessPenalty": 0,
+          "switchingCost": 0,
+          "totalCost": 300,
+          "crowdRisk": "UNKNOWN",
+          "reason": "This route won primarily on personal generalized cost, not network pressure.",
+          "decisionReasonCode": "PERSONAL_PREFERENCE",
+          "resources": []
+        }
+      ],
+      "flags": []
+    },
+    {
+      "origin": "Punggol",
+      "destination": "one-north",
+      "mode": "multimodal",
+      "testTimestamp": "2026-09-19T00:13:58.976Z",
+      "departureTime": "2026-09-19T00:13:58.656Z",
+      "routeCount": 2,
+      "shadowCandidateCount": 2,
+      "shadowCandidates": [
+        {
+          "routeId": "onemap-bike-transit-e6c9034a88b534fb",
+          "baseRouteId": "onemap-bike-transit-e6c9034a88b534fb",
+          "source": "multimodal",
+          "departureTime": "2026-09-19T00:13:58.656Z",
+          "departureDelayMin": 0,
+          "durationMin": 67,
+          "modes": [
+            "cycle",
+            "transfer",
+            "walk",
+            "train"
+          ]
+        },
+        {
+          "routeId": "onemap-bike-transit-23ddb99522b335ae",
+          "baseRouteId": "onemap-bike-transit-23ddb99522b335ae",
+          "source": "multimodal",
+          "departureTime": "2026-09-19T00:13:58.656Z",
+          "departureDelayMin": 0,
+          "durationMin": 100,
+          "modes": [
+            "cycle",
+            "transfer",
+            "walk",
+            "train"
+          ]
+        }
+      ],
+      "existingWinner": {
+        "routeId": "onemap-bike-transit-e6c9034a88b534fb",
+        "modes": [
+          "cycle",
+          "transfer",
+          "walk",
+          "train"
+        ],
+        "durationMin": 67,
+        "existingScore": 295
+      },
+      "personalBaselineRouteId": "onemap-bike-transit-e6c9034a88b534fb",
+      "userFacingBestMatchRouteId": "onemap-bike-transit-e6c9034a88b534fb",
+      "userFacingSource": "network-aware",
+      "networkAwareWinner": {
+        "routeId": "onemap-bike-transit-e6c9034a88b534fb",
+        "modes": [
+          "cycle",
+          "transfer",
+          "walk",
+          "train"
+        ],
+        "durationMin": 67,
+        "personalCost": 118,
+        "networkCost": 0,
+        "fairnessPenalty": 0,
+        "switchingCost": 0,
+        "totalCost": 118,
+        "bottleneckResourceId": "STATION_NE16",
+        "bottleneckResourceName": "SENGKANG MRT STATION",
+        "crowdRisk": "LOW",
+        "reason": "This route won primarily on personal generalized cost, not network pressure.",
+        "decisionReasonCode": "PERSONAL_PREFERENCE",
+        "departureDelayMin": 0
+      },
+      "sameWinner": true,
+      "travelTimeDifferenceMin": 0,
+      "routes": [
+        {
+          "routeId": "onemap-bike-transit-e6c9034a88b534fb",
+          "personalCost": 118,
+          "networkCost": 0,
+          "fairnessPenalty": 0,
+          "switchingCost": 0,
+          "totalCost": 118,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_NE16",
+          "bottleneckResourceName": "SENGKANG MRT STATION",
+          "reason": "This route won primarily on personal generalized cost, not network pressure.",
+          "decisionReasonCode": "PERSONAL_PREFERENCE",
+          "resources": [
+            {
+              "resourceId": "STATION_NE16",
+              "resourceType": "STATION",
+              "resourceName": "SENGKANG MRT STATION",
+              "targetTimeMs": 1789778218656,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789778218656,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NEL_NE16_NE1",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NEL SENGKANG MRT STATION to HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789779118656,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789779118656,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NE1",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789780018656,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781998656,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC29",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789780018656,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781998656,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_CCL_CC29_CC23",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "CCL HARBOURFRONT MRT STATION to ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789780378656,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789782358656,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC23",
+              "resourceType": "STATION",
+              "resourceName": "ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789780738656,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789782718656,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        },
+        {
+          "routeId": "onemap-bike-transit-23ddb99522b335ae",
+          "personalCost": 331,
+          "networkCost": 0,
+          "fairnessPenalty": 296,
+          "switchingCost": 3,
+          "totalCost": 630,
+          "crowdRisk": "LOW",
+          "bottleneckResourceId": "STATION_NE15",
+          "bottleneckResourceName": "BUANGKOK MRT STATION",
+          "reason": "This alternative must be meaningfully better before replacing the current recommendation.",
+          "decisionReasonCode": "FAIRNESS_GUARDRAIL",
+          "resources": [
+            {
+              "resourceId": "STATION_NE15",
+              "resourceType": "STATION",
+              "resourceName": "BUANGKOK MRT STATION",
+              "targetTimeMs": 1789780318656,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789780318656,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_NEL_NE15_NE1",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "NEL BUANGKOK MRT STATION to HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789781158656,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781158656,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_NE1",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789781998656,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781998656,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC29",
+              "resourceType": "STATION",
+              "resourceName": "HARBOURFRONT MRT STATION",
+              "targetTimeMs": 1789781998656,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789781998656,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "RAIL_CCL_CC29_CC23",
+              "resourceType": "RAIL_SEGMENT",
+              "resourceName": "CCL HARBOURFRONT MRT STATION to ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789782358656,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789782358656,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            },
+            {
+              "resourceId": "STATION_CC23",
+              "resourceType": "STATION",
+              "resourceName": "ONE-NORTH MRT STATION",
+              "targetTimeMs": 1789782718656,
+              "crowdRisk": "LOW",
+              "currentCrowd": "LOW",
+              "forecastCrowd": "LOW",
+              "forecastAtMs": 1789782718656,
+              "disrupted": false,
+              "normalizedBackgroundDemand15Min": 20,
+              "normalizedCapacity15Min": 100,
+              "ledgerDemand": 0,
+              "provenance": [
+                "LTA_REALTIME",
+                "LTA_FORECAST",
+                "PROXY"
+              ]
+            }
+          ]
+        }
+      ],
+      "flags": []
+    }
+  ],
+  "skipped": [],
+  "pressureTests": [
+    {
+      "journey": "Punggol → one-north [transit]",
+      "progression": [
+        {
+          "representedCommuters": 0,
+          "expectedCompliantDemand": 0,
+          "seededRouteId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+          "initialNetworkCost": 0,
+          "currentNetworkCost": 0,
+          "winnerRouteId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+          "personalBaselineRouteId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+          "bottleneckResourceId": "STATION_NE17",
+          "crowdRisk": "LOW",
+          "fairnessPenalty": 0,
+          "hysteresisRetainedPreviousWinner": true,
+          "routeNetworkCosts": {
+            "onemap-transit-cc55cf861f8874a8--depart-29829614": 0,
+            "onemap-bike-transit-e6c9034a88b534fb": 0,
+            "onemap-transit-cc55cf861f8874a8--depart-29829634": 0,
+            "onemap-transit-cc55cf861f8874a8--depart-29829654": 0,
+            "onemap-bike-transit-23ddb99522b335ae": 0
+          },
+          "candidates": [
+            {
+              "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+              "departureTime": "2026-09-19T00:13:40.456Z",
+              "source": "immediate-transit",
+              "departureDelayMin": 0,
+              "routeSummary": "NE + CC",
+              "durationMin": 50,
+              "personalCost": 81,
+              "networkCost": 0,
+              "fairnessPenalty": 0,
+              "switchingCost": 0,
+              "totalCost": 81,
+              "bottleneckResourceId": "STATION_NE17",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "PERSONAL_PREFERENCE"
+            },
+            {
+              "routeId": "onemap-bike-transit-e6c9034a88b534fb",
+              "departureTime": "2026-09-19T00:13:44.028Z",
+              "source": "bike-and-ride",
+              "departureDelayMin": 0,
+              "routeSummary": "Cycle → NE → CC",
+              "durationMin": 67,
+              "personalCost": 118,
+              "networkCost": 0,
+              "fairnessPenalty": 100,
+              "switchingCost": 0,
+              "totalCost": 218,
+              "bottleneckResourceId": "STATION_NE16",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "FAIRNESS_GUARDRAIL"
+            },
+            {
+              "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829634",
+              "departureTime": "2026-09-19T00:33:41.632Z",
+              "source": "later-transit",
+              "departureDelayMin": 20,
+              "routeSummary": "NE + CC",
+              "durationMin": 49,
+              "personalCost": 100,
+              "networkCost": 0,
+              "fairnessPenalty": 123,
+              "switchingCost": 0,
+              "totalCost": 223,
+              "bottleneckResourceId": "STATION_NE17",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "FAIRNESS_GUARDRAIL"
+            },
+            {
+              "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829654",
+              "departureTime": "2026-09-19T00:53:42.710Z",
+              "source": "later-transit",
+              "departureDelayMin": 40,
+              "routeSummary": "NE + CC",
+              "durationMin": 50,
+              "personalCost": 121,
+              "networkCost": 0,
+              "fairnessPenalty": 380,
+              "switchingCost": 0,
+              "totalCost": 501,
+              "bottleneckResourceId": "RAIL_NEL_NE17_NE1",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "FAIRNESS_GUARDRAIL"
+            },
+            {
+              "routeId": "onemap-bike-transit-23ddb99522b335ae",
+              "departureTime": "2026-09-19T00:13:44.028Z",
+              "source": "bike-and-ride",
+              "departureDelayMin": 0,
+              "routeSummary": "Cycle → NE → CC",
+              "durationMin": 100,
+              "personalCost": 331,
+              "networkCost": 0,
+              "fairnessPenalty": 501,
+              "switchingCost": 0,
+              "totalCost": 832,
+              "bottleneckResourceId": "STATION_NE15",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "FAIRNESS_GUARDRAIL"
+            }
+          ],
+          "calculationTrace": [
+            {
+              "resourceId": "STATION_NE17",
+              "targetTime": "2026-09-19T00:15:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 2.7,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 0
+              },
+              "totalDemand": 9.8,
+              "utilization": 0.29,
+              "risk": "LOW"
+            },
+            {
+              "resourceId": "RAIL_NEL_NE17_NE1",
+              "targetTime": "2026-09-19T00:32:10.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 1.3,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 0
+              },
+              "totalDemand": 8.4,
+              "utilization": 0.25,
+              "risk": "LOW"
+            },
+            {
+              "resourceId": "STATION_NE1",
+              "targetTime": "2026-09-19T00:48:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.6,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 0
+              },
+              "totalDemand": 7.7,
+              "utilization": 0.23,
+              "risk": "LOW"
+            },
+            {
+              "resourceId": "STATION_CC29",
+              "targetTime": "2026-09-19T00:48:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.6,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 0
+              },
+              "totalDemand": 7.7,
+              "utilization": 0.23,
+              "risk": "LOW"
+            },
+            {
+              "resourceId": "RAIL_CCL_CC29_CC23",
+              "targetTime": "2026-09-19T00:54:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.5,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 0
+              },
+              "totalDemand": 7.5,
+              "utilization": 0.23,
+              "risk": "LOW"
+            },
+            {
+              "resourceId": "STATION_CC23",
+              "targetTime": "2026-09-19T01:00:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.3,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 0
+              },
+              "totalDemand": 7.4,
+              "utilization": 0.22,
+              "risk": "LOW"
+            }
+          ]
+        },
+        {
+          "representedCommuters": 25,
+          "expectedCompliantDemand": 17.5,
+          "seededRouteId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+          "initialNetworkCost": 0,
+          "currentNetworkCost": 22.25,
+          "winnerRouteId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+          "personalBaselineRouteId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+          "bottleneckResourceId": "STATION_NE17",
+          "crowdRisk": "HIGH",
+          "fairnessPenalty": 0,
+          "hysteresisRetainedPreviousWinner": true,
+          "routeNetworkCosts": {
+            "onemap-transit-cc55cf861f8874a8--depart-29829614": 22.25,
+            "onemap-bike-transit-e6c9034a88b534fb": 0,
+            "onemap-transit-cc55cf861f8874a8--depart-29829634": 0,
+            "onemap-transit-cc55cf861f8874a8--depart-29829654": 0,
+            "onemap-bike-transit-23ddb99522b335ae": 0
+          },
+          "candidates": [
+            {
+              "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+              "departureTime": "2026-09-19T00:13:40.456Z",
+              "source": "immediate-transit",
+              "departureDelayMin": 0,
+              "routeSummary": "NE + CC",
+              "durationMin": 50,
+              "personalCost": 81,
+              "networkCost": 22.25,
+              "fairnessPenalty": 0,
+              "switchingCost": 0,
+              "totalCost": 103.25,
+              "bottleneckResourceId": "STATION_NE17",
+              "crowdRisk": "HIGH",
+              "decisionReasonCode": "FAIRNESS_GUARDRAIL"
+            },
+            {
+              "routeId": "onemap-bike-transit-e6c9034a88b534fb",
+              "departureTime": "2026-09-19T00:13:44.028Z",
+              "source": "bike-and-ride",
+              "departureDelayMin": 0,
+              "routeSummary": "Cycle → NE → CC",
+              "durationMin": 67,
+              "personalCost": 118,
+              "networkCost": 0,
+              "fairnessPenalty": 100,
+              "switchingCost": 3,
+              "totalCost": 221,
+              "bottleneckResourceId": "STATION_NE16",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "FAIRNESS_GUARDRAIL"
+            },
+            {
+              "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829634",
+              "departureTime": "2026-09-19T00:33:41.632Z",
+              "source": "later-transit",
+              "departureDelayMin": 20,
+              "routeSummary": "NE + CC",
+              "durationMin": 49,
+              "personalCost": 100,
+              "networkCost": 0,
+              "fairnessPenalty": 123,
+              "switchingCost": 3,
+              "totalCost": 226,
+              "bottleneckResourceId": "STATION_NE17",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "FAIRNESS_GUARDRAIL"
+            },
+            {
+              "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829654",
+              "departureTime": "2026-09-19T00:53:42.710Z",
+              "source": "later-transit",
+              "departureDelayMin": 40,
+              "routeSummary": "NE + CC",
+              "durationMin": 50,
+              "personalCost": 121,
+              "networkCost": 0,
+              "fairnessPenalty": 380,
+              "switchingCost": 3,
+              "totalCost": 504,
+              "bottleneckResourceId": "RAIL_NEL_NE17_NE1",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "FAIRNESS_GUARDRAIL"
+            },
+            {
+              "routeId": "onemap-bike-transit-23ddb99522b335ae",
+              "departureTime": "2026-09-19T00:13:44.028Z",
+              "source": "bike-and-ride",
+              "departureDelayMin": 0,
+              "routeSummary": "Cycle → NE → CC",
+              "durationMin": 100,
+              "personalCost": 331,
+              "networkCost": 0,
+              "fairnessPenalty": 501,
+              "switchingCost": 3,
+              "totalCost": 835,
+              "bottleneckResourceId": "STATION_NE15",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "FAIRNESS_GUARDRAIL"
+            }
+          ],
+          "calculationTrace": [
+            {
+              "resourceId": "STATION_NE17",
+              "targetTime": "2026-09-19T00:15:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 2.7,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 17.5
+              },
+              "totalDemand": 27.3,
+              "utilization": 0.82,
+              "risk": "HIGH"
+            },
+            {
+              "resourceId": "RAIL_NEL_NE17_NE1",
+              "targetTime": "2026-09-19T00:32:10.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 1.3,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 17.5
+              },
+              "totalDemand": 25.9,
+              "utilization": 0.78,
+              "risk": "MODERATE"
+            },
+            {
+              "resourceId": "STATION_NE1",
+              "targetTime": "2026-09-19T00:48:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.6,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 17.5
+              },
+              "totalDemand": 25.2,
+              "utilization": 0.76,
+              "risk": "MODERATE"
+            },
+            {
+              "resourceId": "STATION_CC29",
+              "targetTime": "2026-09-19T00:48:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.6,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 17.5
+              },
+              "totalDemand": 25.2,
+              "utilization": 0.76,
+              "risk": "MODERATE"
+            },
+            {
+              "resourceId": "RAIL_CCL_CC29_CC23",
+              "targetTime": "2026-09-19T00:54:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.5,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 17.5
+              },
+              "totalDemand": 25,
+              "utilization": 0.75,
+              "risk": "MODERATE"
+            },
+            {
+              "resourceId": "STATION_CC23",
+              "targetTime": "2026-09-19T01:00:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.3,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 17.5
+              },
+              "totalDemand": 24.9,
+              "utilization": 0.75,
+              "risk": "MODERATE"
+            }
+          ]
+        },
+        {
+          "representedCommuters": 50,
+          "expectedCompliantDemand": 35,
+          "seededRouteId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+          "initialNetworkCost": 0,
+          "currentNetworkCost": 80,
+          "winnerRouteId": "onemap-transit-cc55cf861f8874a8--depart-29829634",
+          "personalBaselineRouteId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+          "bottleneckResourceId": "STATION_NE17",
+          "crowdRisk": "CRITICAL",
+          "fairnessPenalty": 0,
+          "hysteresisRetainedPreviousWinner": false,
+          "routeNetworkCosts": {
+            "onemap-transit-cc55cf861f8874a8--depart-29829634": 0,
+            "onemap-bike-transit-e6c9034a88b534fb": 0,
+            "onemap-transit-cc55cf861f8874a8--depart-29829614": 80,
+            "onemap-transit-cc55cf861f8874a8--depart-29829654": 0,
+            "onemap-bike-transit-23ddb99522b335ae": 0
+          },
+          "candidates": [
+            {
+              "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829634",
+              "departureTime": "2026-09-19T00:33:41.632Z",
+              "source": "later-transit",
+              "departureDelayMin": 20,
+              "routeSummary": "NE + CC",
+              "durationMin": 49,
+              "personalCost": 100,
+              "networkCost": 0,
+              "fairnessPenalty": 27,
+              "switchingCost": 3,
+              "totalCost": 130,
+              "bottleneckResourceId": "STATION_NE17",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "FAIRNESS_GUARDRAIL"
+            },
+            {
+              "routeId": "onemap-bike-transit-e6c9034a88b534fb",
+              "departureTime": "2026-09-19T00:13:44.028Z",
+              "source": "bike-and-ride",
+              "departureDelayMin": 0,
+              "routeSummary": "Cycle → NE → CC",
+              "durationMin": 67,
+              "personalCost": 118,
+              "networkCost": 0,
+              "fairnessPenalty": 21,
+              "switchingCost": 3,
+              "totalCost": 142,
+              "bottleneckResourceId": "STATION_NE16",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "PERSONAL_PREFERENCE"
+            },
+            {
+              "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+              "departureTime": "2026-09-19T00:13:40.456Z",
+              "source": "immediate-transit",
+              "departureDelayMin": 0,
+              "routeSummary": "NE + CC",
+              "durationMin": 50,
+              "personalCost": 81,
+              "networkCost": 80,
+              "fairnessPenalty": 0,
+              "switchingCost": 0,
+              "totalCost": 161,
+              "bottleneckResourceId": "STATION_NE17",
+              "crowdRisk": "CRITICAL",
+              "decisionReasonCode": "NETWORK_PRESSURE"
+            },
+            {
+              "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829654",
+              "departureTime": "2026-09-19T00:53:42.710Z",
+              "source": "later-transit",
+              "departureDelayMin": 40,
+              "routeSummary": "NE + CC",
+              "durationMin": 50,
+              "personalCost": 121,
+              "networkCost": 0,
+              "fairnessPenalty": 380,
+              "switchingCost": 3,
+              "totalCost": 504,
+              "bottleneckResourceId": "RAIL_NEL_NE17_NE1",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "FAIRNESS_GUARDRAIL"
+            },
+            {
+              "routeId": "onemap-bike-transit-23ddb99522b335ae",
+              "departureTime": "2026-09-19T00:13:44.028Z",
+              "source": "bike-and-ride",
+              "departureDelayMin": 0,
+              "routeSummary": "Cycle → NE → CC",
+              "durationMin": 100,
+              "personalCost": 331,
+              "networkCost": 0,
+              "fairnessPenalty": 501,
+              "switchingCost": 3,
+              "totalCost": 835,
+              "bottleneckResourceId": "STATION_NE15",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "FAIRNESS_GUARDRAIL"
+            }
+          ],
+          "calculationTrace": [
+            {
+              "resourceId": "STATION_NE17",
+              "targetTime": "2026-09-19T00:15:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 2.7,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 35
+              },
+              "totalDemand": 44.8,
+              "utilization": 1.34,
+              "risk": "CRITICAL"
+            },
+            {
+              "resourceId": "RAIL_NEL_NE17_NE1",
+              "targetTime": "2026-09-19T00:32:10.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 1.3,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 35
+              },
+              "totalDemand": 43.4,
+              "utilization": 1.3,
+              "risk": "CRITICAL"
+            },
+            {
+              "resourceId": "STATION_NE1",
+              "targetTime": "2026-09-19T00:48:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.6,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 35
+              },
+              "totalDemand": 42.7,
+              "utilization": 1.28,
+              "risk": "CRITICAL"
+            },
+            {
+              "resourceId": "STATION_CC29",
+              "targetTime": "2026-09-19T00:48:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.6,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 35
+              },
+              "totalDemand": 42.7,
+              "utilization": 1.28,
+              "risk": "CRITICAL"
+            },
+            {
+              "resourceId": "RAIL_CCL_CC29_CC23",
+              "targetTime": "2026-09-19T00:54:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.5,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 35
+              },
+              "totalDemand": 42.5,
+              "utilization": 1.28,
+              "risk": "CRITICAL"
+            },
+            {
+              "resourceId": "STATION_CC23",
+              "targetTime": "2026-09-19T01:00:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.3,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 35
+              },
+              "totalDemand": 42.4,
+              "utilization": 1.27,
+              "risk": "CRITICAL"
+            }
+          ]
+        },
+        {
+          "representedCommuters": 100,
+          "expectedCompliantDemand": 70,
+          "seededRouteId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+          "initialNetworkCost": 0,
+          "currentNetworkCost": 80,
+          "winnerRouteId": "onemap-transit-cc55cf861f8874a8--depart-29829634",
+          "personalBaselineRouteId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+          "bottleneckResourceId": "STATION_NE17",
+          "crowdRisk": "CRITICAL",
+          "fairnessPenalty": 0,
+          "hysteresisRetainedPreviousWinner": true,
+          "routeNetworkCosts": {
+            "onemap-transit-cc55cf861f8874a8--depart-29829634": 0,
+            "onemap-bike-transit-e6c9034a88b534fb": 0,
+            "onemap-transit-cc55cf861f8874a8--depart-29829614": 80,
+            "onemap-transit-cc55cf861f8874a8--depart-29829654": 0,
+            "onemap-bike-transit-23ddb99522b335ae": 0
+          },
+          "candidates": [
+            {
+              "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829634",
+              "departureTime": "2026-09-19T00:33:41.632Z",
+              "source": "later-transit",
+              "departureDelayMin": 20,
+              "routeSummary": "NE + CC",
+              "durationMin": 49,
+              "personalCost": 100,
+              "networkCost": 0,
+              "fairnessPenalty": 27,
+              "switchingCost": 0,
+              "totalCost": 127,
+              "bottleneckResourceId": "STATION_NE17",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "FAIRNESS_GUARDRAIL"
+            },
+            {
+              "routeId": "onemap-bike-transit-e6c9034a88b534fb",
+              "departureTime": "2026-09-19T00:13:44.028Z",
+              "source": "bike-and-ride",
+              "departureDelayMin": 0,
+              "routeSummary": "Cycle → NE → CC",
+              "durationMin": 67,
+              "personalCost": 118,
+              "networkCost": 0,
+              "fairnessPenalty": 21,
+              "switchingCost": 3,
+              "totalCost": 142,
+              "bottleneckResourceId": "STATION_NE16",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "PERSONAL_PREFERENCE"
+            },
+            {
+              "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829614",
+              "departureTime": "2026-09-19T00:13:40.456Z",
+              "source": "immediate-transit",
+              "departureDelayMin": 0,
+              "routeSummary": "NE + CC",
+              "durationMin": 50,
+              "personalCost": 81,
+              "networkCost": 80,
+              "fairnessPenalty": 0,
+              "switchingCost": 3,
+              "totalCost": 164,
+              "bottleneckResourceId": "STATION_NE17",
+              "crowdRisk": "CRITICAL",
+              "decisionReasonCode": "NETWORK_PRESSURE"
+            },
+            {
+              "routeId": "onemap-transit-cc55cf861f8874a8--depart-29829654",
+              "departureTime": "2026-09-19T00:53:42.710Z",
+              "source": "later-transit",
+              "departureDelayMin": 40,
+              "routeSummary": "NE + CC",
+              "durationMin": 50,
+              "personalCost": 121,
+              "networkCost": 0,
+              "fairnessPenalty": 380,
+              "switchingCost": 3,
+              "totalCost": 504,
+              "bottleneckResourceId": "RAIL_NEL_NE17_NE1",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "FAIRNESS_GUARDRAIL"
+            },
+            {
+              "routeId": "onemap-bike-transit-23ddb99522b335ae",
+              "departureTime": "2026-09-19T00:13:44.028Z",
+              "source": "bike-and-ride",
+              "departureDelayMin": 0,
+              "routeSummary": "Cycle → NE → CC",
+              "durationMin": 100,
+              "personalCost": 331,
+              "networkCost": 0,
+              "fairnessPenalty": 501,
+              "switchingCost": 3,
+              "totalCost": 835,
+              "bottleneckResourceId": "STATION_NE15",
+              "crowdRisk": "LOW",
+              "decisionReasonCode": "FAIRNESS_GUARDRAIL"
+            }
+          ],
+          "calculationTrace": [
+            {
+              "resourceId": "STATION_NE17",
+              "targetTime": "2026-09-19T00:15:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 2.7,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 70
+              },
+              "totalDemand": 79.8,
+              "utilization": 2.39,
+              "risk": "CRITICAL"
+            },
+            {
+              "resourceId": "RAIL_NEL_NE17_NE1",
+              "targetTime": "2026-09-19T00:32:10.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 1.3,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 70
+              },
+              "totalDemand": 78.4,
+              "utilization": 2.35,
+              "risk": "CRITICAL"
+            },
+            {
+              "resourceId": "STATION_NE1",
+              "targetTime": "2026-09-19T00:48:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.6,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 70
+              },
+              "totalDemand": 77.7,
+              "utilization": 2.33,
+              "risk": "CRITICAL"
+            },
+            {
+              "resourceId": "STATION_CC29",
+              "targetTime": "2026-09-19T00:48:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.6,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 70
+              },
+              "totalDemand": 77.7,
+              "utilization": 2.33,
+              "risk": "CRITICAL"
+            },
+            {
+              "resourceId": "RAIL_CCL_CC29_CC23",
+              "targetTime": "2026-09-19T00:54:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.5,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 70
+              },
+              "totalDemand": 77.5,
+              "utilization": 2.33,
+              "risk": "CRITICAL"
+            },
+            {
+              "resourceId": "STATION_CC23",
+              "targetTime": "2026-09-19T01:00:40.456Z",
+              "capacity": 33.3,
+              "components": {
+                "backgroundDemand": 6.7,
+                "currentCrowdCarryover": 0.3,
+                "externalForecastContribution": 0.4,
+                "disruptionDemand": 0,
+                "recommendationDemand": 70
+              },
+              "totalDemand": 77.4,
+              "utilization": 2.32,
+              "risk": "CRITICAL"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "journeysAttempted": 12,
+    "journeysSuccessfullyRouted": 12,
+    "skippedOrFailedExternalCalls": 0,
+    "sameWinner": 12,
+    "differentWinner": 0,
+    "flagCounts": {
+      "FLAG_LARGE_DETOUR": 0,
+      "FLAG_COST_CAP": 1,
+      "FLAG_EARLY_SATURATION": 1,
+      "FLAG_UNKNOWN_DOMINANCE": 0,
+      "FLAG_MAPPING": 0,
+      "FLAG_WRONG_LINE": 0,
+      "FLAG_DISABLED_MODE": 0,
+      "FLAG_OSCILLATION": 0,
+      "FLAG_UNSTABLE_ID": 0,
+      "FLAG_REPLAY_LIVE_MIX": 0,
+      "FLAG_EXTREME_FAIRNESS": 0
+    },
+    "manualReviewJourneys": [
+      "Punggol → one-north [transit]"
+    ]
+  }
+}

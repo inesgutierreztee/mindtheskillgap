@@ -1,0 +1,6 @@
+{
+  "name": "Transit Companion",
+  "description": "Public transport companion with personalised onboarding, commute routine detection, live disruption alerts, and step-by-step journey guidance.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
