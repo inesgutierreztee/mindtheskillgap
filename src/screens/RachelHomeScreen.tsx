@@ -4,15 +4,12 @@ import {
   ArrowLeft,
   Briefcase,
   CheckCircle2,
-  CloudRain,
   ShieldCheck,
   TrainFront,
-  Umbrella,
   User,
 } from 'lucide-react';
 import { LineSummary, RachelScenario, RouteOption } from '../types';
 import { fetchLiveRoutePlan } from '../services/routingService';
-import { fetchWeather, WeatherInfo } from '../services/weatherService';
 import { resolveStationCoords } from '../utils/stationLookup';
 import {
   formatClock,
@@ -74,6 +71,10 @@ function finalWalkMinutes(route: RouteOption | null): number {
 
 const isDirectEwlRoute = (route: RouteOption) =>
   route.transfers === 0 && route.lines.length > 0 && route.lines.every((l) => lineLabel(l) === 'EWL');
+
+// A genuine alternative to an East-West Line disruption can't use the EWL
+// for any leg, not just avoid being an all-EWL direct ride.
+const usesEwl = (route: RouteOption) => route.lines.some((l) => lineLabel(l) === 'EWL');
 
 // Her usual route per the brief: the live EWL ride to Raffles Place, then the
 // live OneMap walk from the station to her desk. Built from two requests
@@ -305,7 +306,7 @@ export const RachelHomeScreen: React.FC<RachelHomeScreenProps> = ({
         }
         const walk = walkPlan.source === 'onemap_live' ? walkPlan.itineraries[0] ?? null : null;
         setUsualRoute(composeUsualRoute(ewlRoute, walk));
-        setAlternatives(officePlan.source === 'onemap_live' ? officePlan.itineraries.filter((r) => !isDirectEwlRoute(r)) : []);
+        setAlternatives(officePlan.source === 'onemap_live' ? officePlan.itineraries.filter((r) => !usesEwl(r)) : []);
         setRouteStatus('live');
       });
     };
@@ -317,50 +318,36 @@ export const RachelHomeScreen: React.FC<RachelHomeScreenProps> = ({
     };
   }, []);
 
-  // Live 2-hour forecasts for both ends of her commute (City covers the CBD).
-  const [weather, setWeather] = useState<WeatherInfo[]>([]);
-  useEffect(() => {
-    let cancelled = false;
-    const load = () =>
-      Promise.all([fetchWeather('Tampines'), fetchWeather('City')]).then((results) => {
-        if (!cancelled) setWeather(results);
-      });
-    load();
-    const timer = setInterval(load, 5 * 60000);
-    return () => {
-      cancelled = true;
-      clearInterval(timer);
-    };
-  }, []);
+  const ewl = lineSummaries.find((l) => l.line === 'EWL');
+  const ewlDisrupted = Boolean(ewl && !ewl.isNormal);
+  const lineSentence = !ewl
+    ? 'Live East-West Line status is unavailable right now.'
+    : ewl.isNormal
+    ? 'The East-West Line is running normally.'
+    : `East-West Line: ${ewl.status}.`;
 
-  const simulatedRain = scenario === 'rain' || scenario === 'reroute';
-  const liveRainAreas = weather.filter((w) => w.source === 'data_gov_sg' && w.isRaining);
-  const isRaining = scenario === 'routine' || scenario === 'active' ? false : simulatedRain || liveRainAreas.length > 0;
-  const rainCause = simulatedRain
-    ? 'Simulated heavy rain'
-    : liveRainAreas.map((w) => `${w.forecast} in ${w.area === 'City' ? 'the CBD' : w.area}`).join(' and ');
+  const simulatedDisruption = scenario === 'disruption' || scenario === 'reroute';
+  const disrupted = scenario === 'routine' || scenario === 'active' ? false : simulatedDisruption || ewlDisrupted;
+  const disruptionCause = simulatedDisruption
+    ? 'Simulated East-West Line disruption'
+    : ewl?.status || 'An East-West Line disruption';
 
-  // The sheltered option is whichever live itinerary to her office spends the
-  // least time walking, provided it walks less than her usual route.
-  const shelteredRoute = useMemo(() => {
+  // The alternative is the fastest live itinerary to her office that avoids
+  // the East-West Line (already excluded when the candidates were fetched).
+  const alternativeRoute = useMemo(() => {
     if (!usualRoute) return null;
-    return (
-      alternatives
-        .filter((r) => r.walkingMinutes < usualRoute.walkingMinutes)
-        .sort((a, b) => a.walkingMinutes - b.walkingMinutes || a.totalDurationMin - b.totalDurationMin)[0] || null
-    );
+    return [...alternatives].sort((a, b) => a.totalDurationMin - b.totalDurationMin)[0] || null;
   }, [alternatives, usualRoute]);
   const isLoading = routeStatus === 'loading';
   const isEstimate = routeStatus === 'unavailable';
   const durationMin = journeyMinutes(usualRoute);
-  const usualExposedWalk = finalWalkMinutes(usualRoute);
 
   const [departureChoice, setDepartureChoice] = useState<'usual' | 'later'>('usual');
   const [view, setView] = useState<'auto' | 'reroute' | 'keepUsual'>('auto');
-  const [rerouteSelection, setRerouteSelection] = useState<'sheltered' | 'usual'>('sheltered');
+  const [rerouteSelection, setRerouteSelection] = useState<'alternative' | 'usual'>('alternative');
   useEffect(() => {
     setDepartureChoice('usual');
-    setRerouteSelection('sheltered');
+    setRerouteSelection('alternative');
     setView(scenario === 'reroute' ? 'reroute' : 'auto');
     setUsualJourneyStarted(false);
   }, [scenario]);
@@ -374,13 +361,6 @@ export const RachelHomeScreen: React.FC<RachelHomeScreenProps> = ({
   const usualTimeline = buildTimeline(usualRoute, leaveMin);
   const bufferMin = ARRIVAL_TARGET_MIN - usualTimeline.arriveMin;
 
-  const ewl = lineSummaries.find((l) => l.line === 'EWL');
-  const ewlDisrupted = Boolean(ewl && !ewl.isNormal);
-  const lineSentence = !ewl
-    ? 'Live East-West Line status is unavailable right now.'
-    : ewl.isNormal
-    ? 'The East-West Line is running normally.'
-    : `East-West Line: ${ewl.status}.`;
   const bufferSentence =
     bufferMin >= 0
       ? `This keeps a ${bufferMin}-minute buffer before your 8:45 arrival target.`
@@ -393,25 +373,24 @@ export const RachelHomeScreen: React.FC<RachelHomeScreenProps> = ({
       ? `Leave in ${minutesToLeave} minute${minutesToLeave === 1 ? '' : 's'}`
       : `Leave at ${formatClock(leaveMin)}${commuteIsTomorrow ? ' tomorrow' : ''}`;
 
-  // The sheltered route keeps her arrival time by leaving earlier if it is
+  // The alternative route keeps her arrival time by leaving earlier if it is
   // slower, but never asks her to leave before now.
-  const shelteredExtraMin = shelteredRoute ? Math.max(0, journeyMinutes(shelteredRoute) - durationMin) : 0;
-  const shelteredLeaveMin = commuteIsTomorrow
-    ? leaveMin - shelteredExtraMin
-    : Math.max(nowMin, leaveMin - shelteredExtraMin);
-  const shelteredTimeline = shelteredRoute ? buildTimeline(shelteredRoute, shelteredLeaveMin) : null;
-  const leaveEarlierBy = leaveMin - shelteredLeaveMin;
-  const shelteredBuffer = shelteredTimeline ? ARRIVAL_TARGET_MIN - shelteredTimeline.arriveMin : 0;
-  const shelteredWalk = finalWalkMinutes(shelteredRoute);
-  const shelteredFirstLine = shelteredTimeline?.firstLine;
-  const keepsFamiliarStart = Boolean(shelteredFirstLine && shelteredFirstLine === usualTimeline.firstLine);
+  const alternativeExtraMin = alternativeRoute ? Math.max(0, journeyMinutes(alternativeRoute) - durationMin) : 0;
+  const alternativeLeaveMin = commuteIsTomorrow
+    ? leaveMin - alternativeExtraMin
+    : Math.max(nowMin, leaveMin - alternativeExtraMin);
+  const alternativeTimeline = alternativeRoute ? buildTimeline(alternativeRoute, alternativeLeaveMin) : null;
+  const leaveEarlierBy = leaveMin - alternativeLeaveMin;
+  const alternativeBuffer = alternativeTimeline ? ARRIVAL_TARGET_MIN - alternativeTimeline.arriveMin : 0;
+  const alternativeFirstLine = alternativeTimeline?.firstLine;
+  const keepsFamiliarStart = Boolean(alternativeFirstLine && alternativeFirstLine === usualTimeline.firstLine);
 
-  const activeView: 'overview' | 'rain' | 'reroute' | 'active' = isActiveJourney
+  const activeView: 'overview' | 'disrupted' | 'reroute' | 'active' = isActiveJourney
     ? 'active'
     : view === 'reroute'
     ? 'reroute'
-    : isRaining && view === 'auto'
-    ? 'rain'
+    : disrupted && view === 'auto'
+    ? 'disrupted'
     : 'overview';
 
   const progressCards =
@@ -422,27 +401,27 @@ export const RachelHomeScreen: React.FC<RachelHomeScreenProps> = ({
   const notification: RachelNotification | null = useMemo(() => {
     if (isLoading) return null;
     if (activeView === 'active') return progressNotification(progressCards, nowMin);
-    if (activeView === 'reroute' && shelteredTimeline) {
+    if (activeView === 'reroute' && alternativeTimeline) {
       return {
-        title: 'Sheltered route ready',
-        body: `Arrive around ${formatClock(shelteredTimeline.arriveMin)} with a ${Math.max(0, shelteredBuffer)} min buffer.`,
+        title: 'Alternative route ready',
+        body: `Arrive around ${formatClock(alternativeTimeline.arriveMin)} with a ${Math.max(0, alternativeBuffer)} min buffer.`,
       };
     }
-    if (activeView === 'rain' || activeView === 'reroute') {
+    if (activeView === 'disrupted' || activeView === 'reroute') {
       return {
-        title: 'Rain affects your usual journey',
-        body: shelteredRoute
+        title: 'Train disruption affects your usual journey',
+        body: alternativeRoute
           ? leaveEarlierBy > 0
-            ? `Leave ${leaveEarlierBy} min earlier for a sheltered route.`
-            : 'A sheltered route is ready at your usual time.'
-          : 'No change needed. Your usual route has the least walking.',
+            ? `Leave ${leaveEarlierBy} min earlier for an alternative route.`
+            : 'An alternative route is ready at your usual time.'
+          : 'No live alternative avoids the disruption right now.',
       };
     }
     return {
       title: ewlDisrupted ? 'East-West Line disruption' : 'East-West Line running normally',
       body: `${minutesToLeave <= 0 ? 'Leave now' : minutesToLeave <= 90 && !commuteIsTomorrow ? `Leave in ${minutesToLeave} min` : `Leave at ${formatClock(leaveMin)}`} to reach work by ${formatClock(usualTimeline.arriveMin)}.`,
     };
-  }, [isLoading, activeView, progressCards[0]?.time, shelteredTimeline, shelteredBuffer, shelteredRoute, leaveEarlierBy, ewlDisrupted, minutesToLeave, commuteIsTomorrow, leaveMin, usualTimeline.arriveMin]);
+  }, [isLoading, activeView, progressCards[0]?.time, alternativeTimeline, alternativeBuffer, alternativeRoute, leaveEarlierBy, ewlDisrupted, minutesToLeave, commuteIsTomorrow, leaveMin, usualTimeline.arriveMin]);
 
   useEffect(() => {
     onNotificationChange?.(notification);
@@ -476,10 +455,10 @@ export const RachelHomeScreen: React.FC<RachelHomeScreenProps> = ({
     { icon: <Briefcase className="w-4 h-4" />, label: 'Work', time: formatClock(usualTimeline.arriveMin) },
   ];
 
-  const shelteredStrip: StripNode[] = useMemo(() => {
-    if (!shelteredRoute) return [];
-    const starts = stepStartTimes(shelteredRoute, shelteredLeaveMin);
-    const trainLegs = shelteredRoute.steps
+  const alternativeStrip: StripNode[] = useMemo(() => {
+    if (!alternativeRoute || !alternativeTimeline) return [];
+    const starts = stepStartTimes(alternativeRoute, alternativeLeaveMin);
+    const trainLegs = alternativeRoute.steps
       .map((s, i) => ({ s, i }))
       .filter(({ s }) => isTransitStep(s.type))
       .slice(0, 2);
@@ -494,12 +473,12 @@ export const RachelHomeScreen: React.FC<RachelHomeScreenProps> = ({
           accent: s.type === 'train' ? lineColor(s.lineOrService) : undefined,
         };
       }),
-      { icon: <Umbrella className="w-4 h-4" />, label: 'Covered', time: `${shelteredWalk} min` },
+      { icon: <Briefcase className="w-4 h-4" />, label: 'Work', time: formatClock(alternativeTimeline.arriveMin) },
     ];
-  }, [shelteredRoute, shelteredLeaveMin, shelteredWalk, usualTimeline.firstLine]);
+  }, [alternativeRoute, alternativeTimeline, alternativeLeaveMin]);
 
-  const shelteredItinerary = shelteredRoute
-    ? buildItinerary(shelteredRoute, shelteredLeaveMin, shelteredBuffer, true)
+  const alternativeItinerary = alternativeRoute
+    ? buildItinerary(alternativeRoute, alternativeLeaveMin, alternativeBuffer, false)
     : [];
 
   return (
@@ -534,7 +513,7 @@ export const RachelHomeScreen: React.FC<RachelHomeScreenProps> = ({
       <div className="flex flex-wrap gap-1.5 -mt-2" aria-label="Data sources">
         {routeStatus === 'live' ? <DataBadge tone="live">LIVE</DataBadge> : isEstimate && <DataBadge tone="demo">DEMO DATA</DataBadge>}
         {isDemoClock && <DataBadge tone="demo">Demo clock · {isActiveJourney ? '7:40 am' : '7:20 am'}</DataBadge>}
-        {simulatedRain && <DataBadge tone="demo">Simulated rain</DataBadge>}
+        {simulatedDisruption && <DataBadge tone="demo">Simulated disruption</DataBadge>}
       </div>
 
       {activeView === 'active' && (
@@ -558,9 +537,9 @@ export const RachelHomeScreen: React.FC<RachelHomeScreenProps> = ({
             body={
               <>
                 <p>{isLoading ? 'Getting live journey times from Tampines.' : `${lineSentence} ${bufferSentence}`}</p>
-                {view === 'keepUsual' && isRaining && !isLoading && (
+                {view === 'keepUsual' && disrupted && !isLoading && (
                   <p className="mt-2 inline-flex items-center gap-1.5 text-[15px]">
-                    <CloudRain className="w-4 h-4 shrink-0" /> Usual route kept. Expected arrival {formatClock(usualTimeline.arriveMin)}.
+                    <AlertTriangle className="w-4 h-4 shrink-0" /> Usual route kept. Expected arrival {formatClock(usualTimeline.arriveMin)}.
                   </p>
                 )}
               </>
@@ -635,40 +614,38 @@ export const RachelHomeScreen: React.FC<RachelHomeScreenProps> = ({
         </>
       )}
 
-      {activeView === 'rain' && (
+      {activeView === 'disrupted' && (
         <>
           <Heading
             eyebrow="Journey update"
             title={
-              shelteredRoute
+              alternativeRoute
                 ? leaveEarlierBy > 0
                   ? `Leave ${leaveEarlierBy} minutes earlier`
-                  : 'Take the sheltered route'
-                : 'Rain on your commute'
+                  : 'Take an alternative route'
+                : 'Train disruption on your commute'
             }
             body={
               <p>
-                {shelteredRoute
-                  ? `${rainCause} affects the exposed walk on your usual route. A sheltered alternative keeps you ${shelteredBuffer >= 0 ? 'on time and ' : ''}dry.`
+                {alternativeRoute
+                  ? `${disruptionCause} affects your usual East-West Line ride. An alternative route avoids the disruption${alternativeBuffer >= 0 ? ' and keeps you on time' : ''}.`
                   : usualRoute
-                  ? usualExposedWalk > 0
-                    ? `${rainCause} affects the ${usualExposedWalk}-minute walk on your usual route, and no live alternative walks less right now.`
-                    : `${rainCause} is forecast, but your usual route has no outdoor walk to work, so no change is needed.`
-                  : `${rainCause} is forecast. Live walking details are unavailable right now.`}
+                  ? `${disruptionCause} affects your usual route, and no live alternative avoids it right now.`
+                  : `${disruptionCause} is affecting the East-West Line. Live routing details are unavailable right now.`}
               </p>
             }
           />
 
-          {usualRoute && usualExposedWalk > 0 && (
-            <section className="rounded-[28px] bg-error-container p-5" aria-label="Rain impact on your usual route">
+          {usualRoute && (
+            <section className="rounded-[28px] bg-error-container p-5" aria-label="Disruption impact on your usual route">
               <div className="flex items-start gap-4">
                 <span className="w-16 h-16 rounded-2xl bg-error text-white flex items-center justify-center shrink-0">
-                  <CloudRain className="w-7 h-7" />
+                  <AlertTriangle className="w-7 h-7" />
                 </span>
                 <div>
                   <h3 className="text-[21px] leading-snug text-on-surface">Your usual route is affected</h3>
                   <p className="text-[15px] text-on-error-container/80 mt-1">
-                    Rain is expected along the {usualExposedWalk}-minute walk from {usualTimeline.alightName}.
+                    {disruptionCause} between {usualTimeline.boardName} and {usualTimeline.alightName}.
                   </p>
                 </div>
               </div>
@@ -682,15 +659,15 @@ export const RachelHomeScreen: React.FC<RachelHomeScreenProps> = ({
                   <span className="block text-sm text-on-surface-variant">Keep usual route</span>
                   <span className="block text-[21px] text-on-surface mt-1 tabular-nums">Arrive {formatClock(usualTimeline.arriveMin)}</span>
                 </button>
-                {shelteredTimeline && (
+                {alternativeTimeline && (
                   <button
                     type="button"
                     onClick={() => setView('reroute')}
                     className="rounded-2xl bg-primary-fixed border-2 border-primary-container hover:bg-secondary-container/60 p-4 text-left transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                   >
-                    <span className="block text-sm text-on-surface-variant">Sheltered reroute</span>
+                    <span className="block text-sm text-on-surface-variant">Alternative reroute</span>
                     <span className="block text-[21px] text-on-surface mt-1 tabular-nums">
-                      Arrive {formatClock(shelteredTimeline.arriveMin)}
+                      Arrive {formatClock(alternativeTimeline.arriveMin)}
                     </span>
                     <span className="block mt-2 text-xs font-bold uppercase tracking-[0.08em] text-primary">Recommended</span>
                   </button>
@@ -699,15 +676,15 @@ export const RachelHomeScreen: React.FC<RachelHomeScreenProps> = ({
             </section>
           )}
 
-          {shelteredRoute ? (
+          {alternativeRoute && alternativeTimeline ? (
             <section className="rounded-[24px] bg-amber-50 border border-amber-200/70 p-5 flex items-center gap-4">
               <span className="w-14 h-14 rounded-2xl bg-surface-container-lowest text-primary flex items-center justify-center shrink-0">
-                <Umbrella className="w-6 h-6" />
+                <ShieldCheck className="w-6 h-6" />
               </span>
               <div>
-                <h3 className="text-lg text-on-surface">Recommended: sheltered route</h3>
+                <h3 className="text-lg text-on-surface">Recommended: alternative route</h3>
                 <p className="text-[15px] text-on-surface-variant">
-                  {shelteredWalk} min covered walk ·{' '}
+                  {alternativeRoute.lines.map(lineLabel).join(' + ')} ·{' '}
                   {leaveEarlierBy > 0 ? `${leaveEarlierBy} min earlier departure` : 'usual departure time'}
                 </p>
               </div>
@@ -723,46 +700,46 @@ export const RachelHomeScreen: React.FC<RachelHomeScreenProps> = ({
           <Heading
             eyebrow="Recommended route"
             title={
-              shelteredRoute
-                ? shelteredBuffer >= 0
-                  ? 'Stay on time. Stay sheltered.'
-                  : 'Stay sheltered.'
+              alternativeRoute
+                ? alternativeBuffer >= 0
+                  ? 'Stay on time. Avoid the disruption.'
+                  : 'Avoid the disruption.'
                 : 'Your usual route is best'
             }
             body={
               <p>
-                {shelteredRoute
+                {alternativeRoute
                   ? keepsFamiliarStart
                     ? 'The recommendation changes only the final part of your familiar commute.'
-                    : `The recommendation swaps the ${usualTimeline.firstLine} for ${shelteredRoute.lines.map(lineLabel).join(' + ')}.`
+                    : `The recommendation swaps the ${usualTimeline.firstLine} for ${alternativeRoute.lines.map(lineLabel).join(' + ')}.`
                   : isLoading
                   ? 'Getting live journey options.'
-                  : 'No live alternative has less outdoor walking than your usual route right now.'}
+                  : 'No live alternative avoids the East-West Line disruption right now.'}
               </p>
             }
           />
 
-          {shelteredRoute && shelteredTimeline && (
-            <section className="rounded-[28px] bg-primary-fixed p-5 space-y-4" aria-label="Sheltered route">
+          {alternativeRoute && alternativeTimeline && (
+            <section className="rounded-[28px] bg-primary-fixed p-5 space-y-4" aria-label="Alternative route">
               <div>
                 <div className="flex items-center justify-between gap-2">
                   <span className="text-[15px] font-semibold text-on-surface-variant">Expected arrival</span>
-                  {shelteredBuffer >= 0 && (
+                  {alternativeBuffer >= 0 && (
                     <span className="inline-flex items-center gap-1.5 text-[15px] font-bold text-primary">
                       <ShieldCheck className="w-4 h-4" />
-                      {shelteredBuffer} min buffer
+                      {alternativeBuffer} min buffer
                     </span>
                   )}
                 </div>
                 <p className="text-[44px] leading-none font-bold tracking-[-0.03em] text-on-surface tabular-nums mt-1">
-                  {formatClock(shelteredTimeline.arriveMin)}
+                  {formatClock(alternativeTimeline.arriveMin)}
                 </p>
               </div>
 
-              <JourneyStrip nodes={shelteredStrip} />
+              <JourneyStrip nodes={alternativeStrip} />
 
               <ol className="pt-4 border-t border-on-surface/10 space-y-3.5" aria-label="Step-by-step route">
-                {shelteredItinerary.map((row, i) => (
+                {alternativeItinerary.map((row, i) => (
                   <li key={`${row.title}-${i}`} className="grid grid-cols-[3.25rem_1fr] gap-3">
                     <span className="text-[15px] font-bold text-primary tabular-nums pt-px">{formatClock(row.time)}</span>
                     <span>
@@ -776,44 +753,44 @@ export const RachelHomeScreen: React.FC<RachelHomeScreenProps> = ({
           )}
 
           <div className="space-y-3" role="radiogroup" aria-label="Choose a route">
-            {shelteredRoute && shelteredTimeline && (
+            {alternativeRoute && alternativeTimeline && (
               <button
                 type="button"
                 role="radio"
-                aria-checked={rerouteSelection === 'sheltered'}
-                onClick={() => setRerouteSelection('sheltered')}
+                aria-checked={rerouteSelection === 'alternative'}
+                onClick={() => setRerouteSelection('alternative')}
                 className={`w-full flex items-center gap-3 rounded-2xl border px-4 py-4 text-left transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
-                  rerouteSelection === 'sheltered'
+                  rerouteSelection === 'alternative'
                     ? 'border-primary bg-primary-fixed'
                     : 'border-outline-variant bg-surface-container-lowest hover:border-primary/50'
                 }`}
               >
                 <ShieldCheck className="w-5 h-5 text-on-surface shrink-0" />
                 <span className="flex-1 min-w-0">
-                  <span className="block text-[17px] text-on-surface">Sheltered alternative</span>
+                  <span className="block text-[17px] text-on-surface">Alternative route</span>
                   <span className="block text-sm text-on-surface-variant">
                     Recommended{keepsFamiliarStart ? ' · mostly familiar' : ''}
                   </span>
                 </span>
-                <span className="text-[17px] text-on-surface tabular-nums">{formatClock(shelteredTimeline.arriveMin)}</span>
+                <span className="text-[17px] text-on-surface tabular-nums">{formatClock(alternativeTimeline.arriveMin)}</span>
               </button>
             )}
             <button
               type="button"
               role="radio"
-              aria-checked={!shelteredRoute || rerouteSelection === 'usual'}
+              aria-checked={!alternativeRoute || rerouteSelection === 'usual'}
               onClick={() => setRerouteSelection('usual')}
               className={`w-full flex items-center gap-3 rounded-2xl border px-4 py-4 text-left transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
-                !shelteredRoute || rerouteSelection === 'usual'
+                !alternativeRoute || rerouteSelection === 'usual'
                   ? 'border-primary bg-primary-fixed'
                   : 'border-outline-variant bg-surface-container-lowest hover:border-primary/50'
               }`}
             >
-              <CloudRain className="w-5 h-5 text-on-surface shrink-0" />
+              <AlertTriangle className="w-5 h-5 text-on-surface shrink-0" />
               <span className="flex-1 min-w-0">
                 <span className="block text-[17px] text-on-surface">Usual route</span>
                 <span className="block text-sm text-on-surface-variant">
-                  {usualRoute ? `${usualExposedWalk} min exposed walk` : 'Estimated'}
+                  {usualRoute ? `${usualTimeline.firstLine} · may be affected` : 'Estimated'}
                 </span>
               </span>
               <span className="text-[17px] text-on-surface tabular-nums">
@@ -823,9 +800,9 @@ export const RachelHomeScreen: React.FC<RachelHomeScreenProps> = ({
           </div>
 
           <div className="space-y-2 pt-1">
-            {shelteredRoute && rerouteSelection === 'sheltered' ? (
-              <PrimaryButton id="btn-use-sheltered-route" onClick={() => onStartJourney(shelteredRoute)}>
-                Use sheltered route
+            {alternativeRoute && rerouteSelection === 'alternative' ? (
+              <PrimaryButton id="btn-use-alternative-route" onClick={() => onStartJourney(alternativeRoute)}>
+                Use alternative route
               </PrimaryButton>
             ) : (
               <PrimaryButton onClick={startUsual}>{usualRoute ? 'Use usual route' : 'Plan usual journey'}</PrimaryButton>

@@ -1,0 +1,9 @@
+Change Rachel's disruption scenario from rain to East-West Line train disruption
+
+Replaces the weather-driven "sheltered route" flow with a live EWL-status-
+driven "alternative route" flow: the disruption box, reroute view, and
+notifications now reference a live/simulated train disruption instead of
+rain, and the alternative route is chosen to avoid the EWL entirely rather
+than to minimise walking distance.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>

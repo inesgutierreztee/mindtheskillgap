@@ -2,8 +2,8 @@ export type TabType = 'home' | 'map' | 'more';
 
 // Judging-demo overrides for Rachel's home. 'live' applies none; the others pin
 // a demo clock (7:20 am, or her 7:40 departure for 'active') and, for
-// rain/reroute, simulated rain. All labelled in-app.
-export type RachelScenario = 'live' | 'routine' | 'active' | 'rain' | 'reroute';
+// disruption/reroute, a simulated East-West Line service disruption. All labelled in-app.
+export type RachelScenario = 'live' | 'routine' | 'active' | 'disruption' | 'reroute';
 
 // Judging-demo overrides for Arjun's home: an 8:02 am demo clock, plus
 // simulated crowding or heavy rain. 'live' applies none.

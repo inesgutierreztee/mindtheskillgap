@@ -579,7 +579,7 @@ export default function App() {
             { id: 'live', label: 'Live now' },
             { id: 'routine', label: 'Routine morning' },
             { id: 'active', label: 'Active journey' },
-            { id: 'rain', label: 'Rain disruption' },
+            { id: 'disruption', label: 'Train disruption' },
             { id: 'reroute', label: 'Recommended reroute' },
           ]}
           scenario={rachelScenario}
@@ -587,7 +587,7 @@ export default function App() {
             setRachelScenario(next);
             openPersonaHome();
           }}
-          caption="Scenarios pin a demo clock (7:20 am, or her 7:40 departure for an active journey) and, for rain, simulated weather. Both are labelled inside the app."
+          caption="Scenarios pin a demo clock (7:20 am, or her 7:40 departure for an active journey) and, for disruption, a simulated East-West Line service alert. Both are labelled inside the app."
           notification={showPersonaNotification}
           notificationTime={rachelScenario === 'live' ? singaporeTime : rachelScenario === 'active' ? '7:40 am' : '7:20 am'}
         />
